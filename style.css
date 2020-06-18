@@ -1,0 +1,31 @@
+div {
+    background-color: white;
+    /* color: white;  */
+}
+
+html {
+    background-color: grey;
+}
+
+#selectForm {
+    height: 200px;
+
+}
+
+.uk-container {
+    padding-top: 30px;
+    margin-top: 30px;
+}
+
+#genInfo {
+    height: 200px;
+}
+
+#map {
+    height: 200px;
+
+}
+
+#stats {
+    height: 200px;
+}
