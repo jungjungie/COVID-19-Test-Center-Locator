@@ -8,6 +8,11 @@
     background-color: white;
 }
 
+.nav-bg {
+    background-color: lightgrey;
+    height: 100px;
+}
+
 #selectForm {
     height: 200px;
 }
