@@ -12,25 +12,7 @@
 <header>
     <!--Nav-->
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar" class="whitebg">
-        <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;" id="indexNav">
-            <div class="uk-navbar-left whitebg">
-    
-                <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href="#">Active</a></li>
-                    <li>
-                        <a href="#">Information</a>
-                        <div class="uk-navbar-dropdown whitebg">
-                            <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <li class="uk-active"><a href="#"></a></li>
-                                <li><a href="#">More Statistics</a></li>
-                                <li><a href="#">General Info</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="#">[SAMPLE]</a></li>
-                </ul>
-    
-            </div>
+        <nav class="uk-navbar-container nav-bg uk-card uk-card-hover uk-animation-slide-bottom uk-card-default uk-card-body uk-width-1-1" uk-navbar style="position: relative; z-index: 980;" id="indexNav">
             <div id="selectForm" class="uk-form-select" data-uk-form-select>
                 <h3>Select A State</h3>
                 <select>
@@ -49,15 +31,36 @@
                     <option value="">Washington</option>
                 </select>
             </div>
+            <div class="uk-navbar-left">
+    
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="#">Active</a></li>
+                    <li>
+                        <a href="#">Information</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#"></a></li>
+                                <li><a href="#">More Statistics</a></li>
+                                <li><a href="#">General Info</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">[SAMPLE]</a></li>
+                </ul>
+                
+            </div>
+            <div class="uk-sticky uk-align-right">
+                <h2>COVID-19 TEST CENTER AND HEALTH CLINIC LOCATOR</h2>
+            </div>
         </nav>
     </div>
 </header>
 <body>
     
-    <section class="uk-container-large uk-align-center">
-        <h1 id="genInfo">COVID-19 GENERAL HEALTH INFORMATION</h1>
-            <h2 class="genInfo" id="h2">COVID-19 is a global pandemic that has lead to nearly 500,000 deaths worldwide. Please take the time to educate yourself on how to stay healthy. For testing and clinic based inquiries, please use our search bar to locate test centers and clinics near you.</h2>
-            <h3 class="genInfo">EMERGENCY WARNING SIGNS</h3>
+    <section class="uk-container-large uk-align-center uk-card uk-card-hover uk-animation-slide-bottom uk-card-default uk-card-body uk-width-1-1">
+        <h2 id="genInfo">COVID-19 GENERAL HEALTH INFORMATION</h2>
+            <h3 class="genInfo" id="h2">COVID-19 is a global pandemic that has lead to nearly 500,000 deaths worldwide. Please take the time to educate yourself on how to stay healthy. For testing and clinic based inquiries, please use our search bar to locate test centers and clinics near you.</h3>
+            <h4 class="genInfo">EMERGENCY WARNING SIGNS</h4>
             <ul>
                 <li>Trouble Breathing</li>
                 <li>Persistent Pain and/or Pressure in Chest Area</li>
@@ -65,7 +68,7 @@
                 <li>New Confusion</li>
                 <li>Bluish Lips and/or Face</li>
             </ul>
-            <h3 class="genInfo">Protect Yourself. Everyone Should:</h3>
+            <h4 class="genInfo">Protect Yourself. Everyone Should:</h4>
             <ul>
                 <li>Wash your hands often</li>
                 <li>Avoid close contact</li>
@@ -73,7 +76,7 @@
                 <li>Clean and disinfect often</li>
                 <li>Monitor your personal health ans symptoms</li>   
             </ul>
-            <h3 class="genInfo">Symptoms:</h3>
+            <h4 class="genInfo">Symptoms:</h4>
             <ul>
                 <li>Fever/Chills</li>
                 <li>Shortness of breath</li>
@@ -83,8 +86,6 @@
                 <li>Congestion</li>
                 <li>Nausea</li>
             </ul>
-            <h3>
-            </h3>
             <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html" target="_blank">Source and for More Information: CDC (Center for Disease Control)</a>
     </section>
 </body>
