@@ -1,5 +1,7 @@
-html {
-    background-color: grey;
+
+
+.header {
+    color: grey;
 }
 
 .whitebg {
@@ -27,3 +29,17 @@ html {
     height: 400px; 
     width: 100%;
    }
+
+.uk-container-large {
+    background-color: lightgrey;
+    width: 800px;
+    align-content: center;
+    height: 600px;
+    border-radius: 10px;
+    color: whitesmoke;
+}
+
+#genInfo {
+    text-align: center;
+    padding: 5px;
+}
