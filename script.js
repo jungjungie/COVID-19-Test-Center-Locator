@@ -75,7 +75,8 @@ function getLocation() {
         
                 var marker = new google.maps.Marker({
                     position: testLocation, 
-                    map: map});
+                    map: map,
+                    animation: google.maps.Animation.DROP});
             })
 
             // Build an array of objects for hours of operations
