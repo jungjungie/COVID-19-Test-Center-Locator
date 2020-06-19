@@ -97,6 +97,7 @@ function getLocation() {
             // console.log("Appended");
         }
 
+        // Google Maps API
         var map;
 
         $.ajax({
@@ -111,24 +112,21 @@ function getLocation() {
             console.log(latitude);
             console.log(longitude);
     
-                // Converts address to latitude & longitude
-                var latitude = latLongData.results[0].geometry.location.lat;
-                var longitude = latLongData.results[0].geometry.location.lng;
-    
-                console.log(latitude);
-                console.log(longitude);
+            var testLocs = {lat: latitude, lng: longitude };
     
             function initMap() {
-                var cali = {lat: latitude, lng: longitude };
-    
-                // Loads map to United States upon first load
+                // Loads map to state selected from drop-down
                 map = new google.maps.Map(document.getElementById("map"), {
-                    center: cali,
+                    center: testLocs,
                     zoom: 6
                 });
-    
+            }
+            initMap();
+            mapMarker();
+
+            function mapMarker() {
                 // Pins a marker on Kansas based on lat/lng in line 7
-                var marker = new google.maps.Marker({position: cali, map: map});
+                var marker = new google.maps.Marker({position: testLocs, map: map});
     
                 // Example loop from API documentation
                 // Loop through the results array and place a marker for each set of coordinates.
@@ -143,7 +141,6 @@ function getLocation() {
                 // }
                 // }
             }
-            initMap();
         })
     });
 
