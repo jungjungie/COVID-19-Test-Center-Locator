@@ -1,6 +1,3 @@
-//Locations API
-// var locationAPIKey = "";
-
 //Not using  var states. Instead getting value directly from user selection.
 
 // var states = ["arizona", "california", "delaware", "florida", "massachusetts", "nevada", "new-jersey", "new-york", "pennsylvania", "texas", "utah", "washington"]; //an array of states. Add 
@@ -18,6 +15,24 @@ function getLocation() {
     //empties state location every time new state is selected.
     $("#appendLocations").empty()
 
+    // Google Maps API - generates map on state selected from drop down
+    var map;
+    $.ajax({
+        url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + stateSelection + "&key=AIzaSyCNTqY8YLLPTLLEL4RHISF8IHShThD3QQs",
+        method: "GET"
+    }).then(function(latLongData) {
+
+        // Converts state to latitude & longitude
+        var latitude = latLongData.results[0].geometry.location.lat;
+        var longitude = latLongData.results[0].geometry.location.lng;
+        var stateLatLng = {lat: latitude, lng: longitude };
+
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: stateLatLng,
+            zoom: 6
+        });
+    })
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -33,6 +48,7 @@ function getLocation() {
             var pTag = $("<p>").attr("class", "uk-card-title");
             var pTag2 = $("<p>");
             var pTag3 = $("<p>");
+            var pTag4 = $("<p>");
             //Gather info
             var locName = statesData[i].alternate_name;
             var street = statesData[i].physical_address[0].address_1;
@@ -40,8 +56,29 @@ function getLocation() {
             var postalCode = statesData[i].physical_address[0].postal_code;
             var state = statesData[i].physical_address[0].state_province;
             var address = street + ", " + city + ", " + state + ", " + postalCode;
+            var phone = statesData[i].phones[0].number;
             var openHour = [];
             var buildTimes = "";
+
+            // Google Maps API - drops markers on test locations
+            $.ajax({
+                url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyCNTqY8YLLPTLLEL4RHISF8IHShThD3QQs",
+                method: "GET"
+            }).then(function(latLongData) {
+        
+                // Converts address to latitude & longitude
+                var latitude = latLongData.results[0].geometry.location.lat;
+                var longitude = latLongData.results[0].geometry.location.lng;
+                var testLocation = {lat: latitude, lng: longitude };
+                console.log(latitude);
+                console.log(longitude);
+        
+                var marker = new google.maps.Marker({
+                    position: testLocation, 
+                    map: map,
+                    animation: google.maps.Animation.DROP});
+            })
+
             // Build an array of objects for hours of operations
             for (var x = 0; x < statesData[i].regular_schedule.length; x++) {
                 openHour.push({ times: "", day: "" });
@@ -51,9 +88,9 @@ function getLocation() {
             }
             //Fill created p tag and append to  div item
             pTag.html(locName);
-            div.append(pTag);
             pTag2.html("Address: " + address);
-            div.append(pTag2);
+            pTag4.html(phone);
+
             // //Since the days come in integers we must switch them to days
             // console.log(openHour.length);
             for (var x = 0; x < openHour.length; x++) {
@@ -89,66 +126,12 @@ function getLocation() {
                 buildTimes = "Hours Not Available";
             }
             pTag3.html("Hours: " + buildTimes);
-            // //Append Hours
-            div.append(pTag3);
+            // //Append Loc, Address, Phone & Hours
+            div.append(pTag, pTag2, pTag4, pTag3);
             // div.append(pTag4);
             //Append list item to page
             $("#appendLocations").append(div);
             // console.log("Appended");
         }
-
     });
-
 }
-
-
-//Google API
-var address1 = "1600 Amphitheatre Pkwy, Mountain View, CA 94043";
-
-var map;
-
-function initialize() {
-
-    $.ajax({
-        url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address1 + "&key=AIzaSyCNTqY8YLLPTLLEL4RHISF8IHShThD3QQs",
-        method: "GET"
-    }).then(function(latLongData) {
-
-        // Converts address to latitude & longitude
-        var latitude = latLongData.results[0].geometry.location.lat;
-        var longitude = latLongData.results[0].geometry.location.lng;
-
-        console.log(latitude);
-        console.log(longitude);
-
-
-
-        function initMap() {
-            var cali = {lat: latitude, lng: longitude };
-
-            // Loads map to United States upon first load
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: cali,
-                zoom: 6
-            });
-
-            // Pins a marker on Kansas based on lat/lng in line 7
-            var marker = new google.maps.Marker({position: cali, map: map});
-
-            // Example loop from API documentation
-            // Loop through the results array and place a marker for each set of coordinates.
-            // window.eqfeed_callback = function(results) {
-            // for (var i = 0; i < results.features.length; i++) {
-            //     var coords = results.features[i].geometry.coordinates;
-            //     var latLng = new google.maps.LatLng(coords[1],coords[0]);
-            //     var marker = new google.maps.Marker({
-            //         position: latLng,
-            //         map: map
-            //     });
-            // }
-            // }
-        }
-        initMap();
-    })
-}
-
