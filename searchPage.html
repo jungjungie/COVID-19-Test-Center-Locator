@@ -42,25 +42,28 @@
                         <h3>Select A State</h3>
                         <select>
                             <option value="">---------</option>
-                            <option value="">Arizona</option>
-                            <option value="">California</option>
-                            <option value="">Delaware</option>
-                            <option value="">Florida</option>
-                            <option value="">Massachusetts</option>
-                            <option value="">Nevada</option>
-                            <option value="">New Jersey</option>
-                            <option value="">New York</option>
-                            <option value="">Pennsylvania</option>
-                            <option value="">Texas</option>
-                            <option value="">Utah</option>
-                            <option value="">Washington</option>
+                            <option value="arizona">Arizona</option>
+                            <option value="California">California</option>
+                            <option value="Delaware">Delaware</option>
+                            <option value="Florida">Florida</option>
+                            <option value="Massachusetts">Massachusetts</option>
+                            <option value="Nevada">Nevada</option>
+                            <option value="New-Jersey">New Jersey</option>
+                            <option value="New-York">New York</option>
+                            <option value="Pennsylvania">Pennsylvania</option>
+                            <option value="Texas">Texas</option>
+                            <option value="Utah">Utah</option>
+                            <option value="Washington">Washington</option>
                         </select>
+                        <div id="appendLocations">
+
+                        </div>
                     </div>
                 </section>
                 <section>
                     <!-- Map goes here -->
                     
-                      <div id="map"></div>
+                      <div id="map" class="uk-animation-slide-top" uk-sticky="offset: 100"></div>
                     <!-- <p id="address">1600 Amphitheatre Pkwy, Mountain View, CA 94043</p> -->
                 </section>
                 <section>
@@ -95,4 +98,14 @@
 
         rows = sections
         columns = columns
+-->
+<!--Content inside scrollbar
+    <div class="uk-height-medium">
+        <div class="js-wrapper">
+
+            <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper">
+                CONTENT INSIDE
+            </div>
+        </div>
+    </div>
 -->
