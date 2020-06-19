@@ -14,11 +14,10 @@ $.ajax({
     for(var i=0; i < statesData.length; i++){
         console.log("Gathering data");
         //Create elements
-        var div = $("<div>");
-        var pTag = $("<p>");
+        var div = $("<div>").attr("class","uk-card uk-card-hover uk-animation-slide-bottom uk-card-default uk-card-body uk-width-1-1");
+        var pTag = $("<p>").attr("class","uk-card-title");
         var pTag2 = $("<p>");
         var pTag3 = $("<p>");
-        var pTag4 = $("<p>").html("----------------------------");
         //Gather info
         var locName = statesData[i].alternate_name;
         var street = statesData[i].physical_address[0].address_1;
@@ -36,7 +35,7 @@ $.ajax({
             console.log("Retrieving schedule");
         }
         //Fill created p tag and append to  div item
-        pTag.html("Location: "+ locName);
+        pTag.html(locName);
         div.append(pTag);
         pTag2.html("Address: "+ address);
         div.append(pTag2);
@@ -77,7 +76,7 @@ $.ajax({
         pTag3.html("Hours: " + buildTimes);
         // //Append Hours
         div.append(pTag3);
-        div.append(pTag4);
+        // div.append(pTag4);
         //Append list item to page
         $("#appendLocations").append(div);
         console.log("Appended");
