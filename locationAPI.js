@@ -2,11 +2,13 @@ var locationAPIKey = "";
 var states = ["arizona", "california", "delaware", "florida", "massachusetts", "nevada", "new-jersey", "new-york", "pennsylvania", "texas", "utah", "washington"]; //an array of states. Add 
 
 
-var queryURL = `https://covid-19-testing.github.io/locations/${state}/complete.json`;
+var queryURL = `https://covid-19-testing.github.io/locations/`+ states[0] +`/complete.json`;
 
 $.ajax({
-    url: queryURL
+    url: queryURL,
     method: "GET"
+}). then(function(statesData) {
+console.log(statesData)
 })
 
 // var settings = {
