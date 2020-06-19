@@ -33,6 +33,7 @@ function getLocation() {
             var pTag = $("<p>").attr("class", "uk-card-title");
             var pTag2 = $("<p>");
             var pTag3 = $("<p>");
+            var pTag4 = $("<p>");
             //Gather info
             var locName = statesData[i].alternate_name;
             var street = statesData[i].physical_address[0].address_1;
@@ -40,6 +41,7 @@ function getLocation() {
             var postalCode = statesData[i].physical_address[0].postal_code;
             var state = statesData[i].physical_address[0].state_province;
             var address = street + ", " + city + ", " + state + ", " + postalCode;
+            var phone = statesData[i].phones[0].number;
             var openHour = [];
             var buildTimes = "";
             // Build an array of objects for hours of operations
@@ -51,9 +53,10 @@ function getLocation() {
             }
             //Fill created p tag and append to  div item
             pTag.html(locName);
-            div.append(pTag);
             pTag2.html("Address: " + address);
-            div.append(pTag2);
+            pTag4.html(phone);
+            div.append(pTag, pTag2, pTag4);
+
             // //Since the days come in integers we must switch them to days
             // console.log(openHour.length);
             for (var x = 0; x < openHour.length; x++) {
@@ -112,21 +115,21 @@ function getLocation() {
             console.log(latitude);
             console.log(longitude);
     
-            var testLocs = {lat: latitude, lng: longitude };
+            var testState = {lat: latitude, lng: longitude };
     
             function initMap() {
                 // Loads map to state selected from drop-down
                 map = new google.maps.Map(document.getElementById("map"), {
-                    center: testLocs,
+                    center: testState,
                     zoom: 6
                 });
             }
             initMap();
-            mapMarker();
+            // mapMarker();
 
             function mapMarker() {
                 // Pins a marker on Kansas based on lat/lng in line 7
-                var marker = new google.maps.Marker({position: testLocs, map: map});
+                var marker = new google.maps.Marker({position: testState, map: map});
     
                 // Example loop from API documentation
                 // Loop through the results array and place a marker for each set of coordinates.
