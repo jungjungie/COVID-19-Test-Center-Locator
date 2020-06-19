@@ -1,15 +1,13 @@
-div {
-    background-color: white;
-    /* color: white;  */
-}
-
 html {
     background-color: grey;
 }
 
+.whitebg {
+    background-color: white;
+}
+
 #selectForm {
     height: 200px;
-
 }
 
 .uk-container {
@@ -21,11 +19,11 @@ html {
     height: 200px;
 }
 
-#map {
-    height: 200px;
-
-}
-
 #stats {
     height: 200px;
 }
+ 
+ #map {
+    height: 400px; 
+    width: 100%;
+   }
