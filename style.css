@@ -1,5 +1,4 @@
-
-
+/* General */
 .header {
     color: grey;
 }
@@ -22,26 +21,16 @@
     margin-top: 30px;
 }
 
+
+/* General Info Page */
 #genInfo {
     height: 200px;
 }
 
-#stats {
-    height: 200px;
-}
- 
- #map {
-    height: 400px; 
-    width: 100%;
-   }
-
 .uk-container-large {
     background-color: whitesmoke;
-    width: 1000px;
-    align-content: center;
     border-radius: 10px;
     color: grey;
-    margin-right: 15px;
 }
 
 #genInfo {
@@ -60,4 +49,19 @@
 
 #h2 {
     margin-top: 10px;
+}
+
+.resources {
+    margin-left: 30px;
+}
+
+
+/* Locations Page */
+#stats {
+    height: 200px;
+}
+ 
+#map {
+    height: 400px; 
+    width: 100%;
 }
