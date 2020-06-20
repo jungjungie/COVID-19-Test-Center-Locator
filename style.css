@@ -1,9 +1,16 @@
-html {
-    background-color: grey;
+
+
+.header {
+    color: grey;
 }
 
 .whitebg {
     background-color: white;
+}
+
+.nav-bg {
+    background-color: lightgrey;
+    height: 100px;
 }
 
 #selectForm {
@@ -27,3 +34,30 @@ html {
     height: 400px; 
     width: 100%;
    }
+
+.uk-container-large {
+    background-color: whitesmoke;
+    width: 1000px;
+    align-content: center;
+    border-radius: 10px;
+    color: grey;
+    margin-right: 15px;
+}
+
+#genInfo {
+    text-align: center;
+    padding: 5px;
+    margin-top: 5px;
+    height: 50px;
+    margin-bottom: 0px;
+}
+
+.genInfo {
+    margin-left: 15px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#h2 {
+    margin-top: 10px;
+}
