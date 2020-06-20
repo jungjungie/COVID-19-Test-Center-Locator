@@ -39,8 +39,16 @@ function getLocation() {
     }).then(function (statesData) {
         console.log(statesData);
         console.log(statesData.length);
+        //Building all organization names and address to feed into google call; We'll need to know all in the array before we kick off google api call to create the marker labels
+        var data = [];
+        for (var i = 0; i < statesData.length; i++) {
+            
+            var org = statesData[i].alternate_name;
+            var add = statesData[i].physical_address[0].address_1+", "+statesData[i].physical_address[0].city+", "+statesData[i].physical_address[0].state_province+", "+statesData[i].physical_address[0].postal_code
+            
+            data.push({name: org, address: add});
+        }
         // EXTRACT CODE INTO VARIABLES HERE
-
         for (var i = 0; i < statesData.length; i++) {
             console.log("Gathering data");
             //Create elements
@@ -60,23 +68,37 @@ function getLocation() {
             var openHour = [];
             var buildTimes = "";
 
-            // Google Maps API - drops markers on test locations
+            //Used as index placeholder in google call
+            var counter= 0;
+            // Google Maps API - drops markers and info on test locations; Pass in data array for labels
             $.ajax({
                 url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyCNTqY8YLLPTLLEL4RHISF8IHShThD3QQs",
-                method: "GET"
+                method: "GET",
+                data: data
             }).then(function(latLongData) {
-        
+
                 // Converts address to latitude & longitude
                 var latitude = latLongData.results[0].geometry.location.lat;
                 var longitude = latLongData.results[0].geometry.location.lng;
                 var testLocation = {lat: latitude, lng: longitude };
                 console.log(latitude);
                 console.log(longitude);
-        
+
+                //Drops a pin at location
                 var marker = new google.maps.Marker({
-                    position: testLocation, 
-                    map: map,
-                    animation: google.maps.Animation.DROP});
+                position: testLocation, 
+                map: map,
+                animation: google.maps.Animation.DROP});
+                //Creates information window for marker
+                var contentString ="<div class=\"uk-text-center\">"+ data[counter].name + "</div>" + "<div>" + data[counter].address + "</div>";
+                //Creating on click for location description
+                var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+                marker.addListener("click", function() {
+                    infowindow.open(map, marker);
+                });
+                counter++;
             })
 
             // Build an array of objects for hours of operations
