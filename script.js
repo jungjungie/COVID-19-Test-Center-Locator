@@ -126,7 +126,7 @@ function getLocation() {
             // console.log("Appended");
             // Google Maps API - drops markers and info on test locations; Pass in data array for label windows
             $.ajax({
-                url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + data[x].address + "&key=AIzaSyCNTqY8YLLPTLLEL4RHISF8IHShThD3QQs",
+                url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + data[i].address + "&key=AIzaSyCNTqY8YLLPTLLEL4RHISF8IHShThD3QQs",
                 method: "GET",
                 data: data
             }).then(function(latLongData) {
