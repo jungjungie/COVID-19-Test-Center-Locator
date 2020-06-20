@@ -7,9 +7,8 @@
     background-color: white;
 }
 
-.nav-bg {
-    background-color: lightgrey;
-    height: 100px;
+.blackBg {
+    background: black;
 }
 
 #selectForm {
