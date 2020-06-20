@@ -29,7 +29,6 @@
 
 .uk-container-large {
     background-color: whitesmoke;
-    max-width: 1000px;
     border-radius: 10px;
     color: grey;
 }
@@ -53,7 +52,7 @@
 }
 
 .resources {
-
+    border-radius: 10px;
 }
 
 
