@@ -42,12 +42,11 @@ function getLocation() {
         //Building all organization names and address to feed into google call; We'll need to know all in the array before we kick off google api call to create the marker labels
         var data = [];
         for (var i = 0; i < statesData.length; i++) {
+            
             var org = statesData[i].alternate_name;
-            if(statesData[i].physical_address.length !==0){
-                var add = statesData[i].physical_address[0].address_1+", "+statesData[i].physical_address[0].city+", "+statesData[i].physical_address[0].state_province+", "+statesData[i].physical_address[0].postal_code
-                var formattedAdd = statesData[i].physical_address[0].address_1;
-            }
-            data.push({name: org, address: add,formatAdd: formattedAdd});
+            var add = statesData[i].physical_address[0].address_1+", "+statesData[i].physical_address[0].city+", "+statesData[i].physical_address[0].state_province+", "+statesData[i].physical_address[0].postal_code
+            
+            data.push({name: org, address: add});
         }
         // EXTRACT CODE INTO VARIABLES HERE
         for (var i = 0; i < statesData.length; i++) {
@@ -60,17 +59,48 @@ function getLocation() {
             var pTag4 = $("<p>");
             //Gather info
             var locName = statesData[i].alternate_name;
-            if(statesData[i].physical_address.length !==0){
-                var street = statesData[i].physical_address[0].address_1;
-                var city = statesData[i].physical_address[0].city;
-                var postalCode = statesData[i].physical_address[0].postal_code;
-                var state = statesData[i].physical_address[0].state_province;
-                var address = street + ", " + city + ", " + state + ", " + postalCode;
-            }
-            if(statesData[i].phones.length !== 0)
-                var phone = statesData[i].phones[0].number;
+            var street = statesData[i].physical_address[0].address_1;
+            var city = statesData[i].physical_address[0].city;
+            var postalCode = statesData[i].physical_address[0].postal_code;
+            var state = statesData[i].physical_address[0].state_province;
+            var address = street + ", " + city + ", " + state + " " + postalCode;
+            var phone = statesData[i].phones[0].number;
             var openHour = [];
             var buildTimes = "";
+
+            //Used as index placeholder in google call
+            var counter= 0;
+            // Google Maps API - drops markers and info on test locations; Pass in data array for labels
+            $.ajax({
+                url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyCNTqY8YLLPTLLEL4RHISF8IHShThD3QQs",
+                method: "GET",
+                data: data
+            }).then(function(latLongData) {
+
+                // Converts address to latitude & longitude
+                var latitude = latLongData.results[0].geometry.location.lat;
+                var longitude = latLongData.results[0].geometry.location.lng;
+                var testLocation = {lat: latitude, lng: longitude };
+                console.log(latitude);
+                console.log(longitude);
+
+                //Drops a pin at location
+                var marker = new google.maps.Marker({
+                position: testLocation, 
+                map: map,
+                animation: google.maps.Animation.DROP});
+                //Creates information window for marker
+                var contentString ="<div class=\"uk-text-center\">"+ data[counter].name + "</div>" + "<div>" + data[counter].address + "</div>";
+                //Creating on click for location description
+                var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+                marker.addListener("click", function() {
+                    infowindow.open(map, marker);
+                });
+                counter++;
+            })
+
             // Build an array of objects for hours of operations
             for (var x = 0; x < statesData[i].regular_schedule.length; x++) {
                 openHour.push({ times: "", day: "" });
@@ -81,7 +111,7 @@ function getLocation() {
             //Fill created p tag and append to  div item
             pTag.html(locName);
             pTag2.html("Address: " + address);
-            pTag4.html(phone);
+            pTag4.html("Phone: " + phone);
 
             // //Since the days come in integers we must switch them to days
             // console.log(openHour.length);
@@ -124,36 +154,6 @@ function getLocation() {
             //Append list item to page
             $("#appendLocations").append(div);
             // console.log("Appended");
-            // Google Maps API - drops markers and info on test locations; Pass in data array for label windows
-            $.ajax({
-                url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + data[i].address + "&key=AIzaSyCNTqY8YLLPTLLEL4RHISF8IHShThD3QQs",
-                method: "GET",
-                data: data
-            }).then(function(latLongData) {
-                console.log(latLongData);
-                var formattedAdd = latLongData.results[0].address_components[0].short_name + " " +latLongData.results[0].address_components[1].short_name + ", " + latLongData.results[0].address_components[2].short_name + ", " + latLongData.results[0].address_components[4].short_name;
-                console.log(formattedAdd);
-                // Converts address to latitude & longitude
-                var latitude = latLongData.results[0].geometry.location.lat;
-                var longitude = latLongData.results[0].geometry.location.lng;
-                var testLocation = {lat: latitude, lng: longitude };
-                console.log(latitude);
-                console.log(longitude);
-                //Drops a pin at location
-                var marker = new google.maps.Marker({
-                    position: testLocation, 
-                    map: map,
-                    animation: google.maps.Animation.DROP});
-                //Creates information window for marker
-                var contentString ="<div class=\"uk-text-center\">"+formattedAdd+"</div>";
-                var infowindow = new google.maps.InfoWindow({
-                    content: contentString
-                });
-                //Creating on click for location description
-                marker.addListener("click", function() {
-                    infowindow.open(map, this);
-                });
-            });
         }
     });
 }
