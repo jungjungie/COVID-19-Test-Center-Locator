@@ -3,21 +3,22 @@
     color: grey;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 .whitebg {
     background-color: white;
 }
 
-.blackBg {
-    background: black;
+
+/* Navbar */
+#pagetitle {
+    color: white;
 }
 
-#selectForm {
-    height: 200px;
-}
-
-.uk-container {
-    padding-top: 30px;
-    margin-top: 30px;
+#navbg {
+    background:#444;
 }
 
 
@@ -56,11 +57,17 @@
 
 
 /* Locations Page */
-#stats {
+
+#selectForm {
     height: 200px;
 }
- 
+
 #map {
     height: 400px; 
     width: 100%;
 }
+
+#stats {
+    height: 200px;
+}
+ 
