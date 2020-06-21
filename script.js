@@ -7,7 +7,11 @@
         var stateSelection = $("#stateSelection").val();
         console.log($("#stateSelection"));
         console.log(document.getElementById("stateSelection"));
-    
+        var zoom;
+        if(stateSelection == "State"){
+            stateSelection = "USA";
+            zoom = 4;
+         }
         //moved queryURL into function.
         var queryURL = "https://covid-19-testing.github.io/locations/" + stateSelection + "/complete.json";
         // console.log($("#stateSelection").value);
@@ -19,17 +23,19 @@
         var map;
         $.ajax({
             url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + stateSelection + "&key=AIzaSyCNTqY8YLLPTLLEL4RHISF8IHShThD3QQs",
-            method: "GET"
+            method: "GET",
+            data: zoom,stateSelection
         }).then(function(latLongData) {
     
             // Converts state to latitude & longitude
             var latitude = latLongData.results[0].geometry.location.lat;
             var longitude = latLongData.results[0].geometry.location.lng;
             var stateLatLng = {lat: latitude, lng: longitude };
-    
+            if(stateSelection !== "USA")
+                zoom = 6;
             map = new google.maps.Map(document.getElementById("map"), {
                 center: stateLatLng,
-                zoom: 6
+                zoom: zoom
             });
         })
     
