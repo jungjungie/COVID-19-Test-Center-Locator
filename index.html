@@ -55,7 +55,7 @@
 </header>
 
 <body>
-    <div id="locationNav" class="uk-container whitebg">
+    <div id="locationNav" class="uk-container whitebg spacer">
         <section class="uk-grid-small uk-child-width-1-2@s uk-flex-center uk-text-center" uk-grid>
             <section class="uk-panel uk-panel-scrollable">
                 <div id="selectForm " class="uk-form-select whitebg" data-uk-form-select>
@@ -88,13 +88,17 @@
                 <!-- <p id="address">1600 Amphitheatre Pkwy, Mountain View, CA 94043</p> -->
             </section>
         </section>
-        <section id="statsNav">
-            <div id="Stats" class="uk-card uk-card-default uk-card-body whitebg uk-width-1-1">Stats Tracker</div>
+    </div>
+
+    <!-- Stats -->
+    <div id="statsNav" class="uk-container spacer">
+        <section id="">
+            <div id="Stats" class="uk-card uk-card-default uk-card-body uk-width-1-1 uk-text-center">Stats Tracker</div>
         </section>
     </div>
 
     <!-- General Information -->
-    <div id="infoNav" class="uk-container whitebg spacer">
+    <div id="infoNav" class="uk-container spacer cdcSource">
         <div class="uk-card uk-card-default uk-width-expand uk-card-body">
             <h2 class="uk-margin-remove-bottom uk-text-center bluePurpleTxt">COVID-19 GENERAL HEALTH INFORMATION</h2>
 
@@ -102,43 +106,80 @@
                 <h3 class="genInfo grayTxt" id="h2">COVID-19 is a global pandemic that has lead to nearly 500,000 deaths
                     worldwide. Please take the time to educate yourself on how to stay healthy. For testing and clinic
                     based inquiries, please use our search bar to locate test centers and clinics near you.</h3>
-                <h4 id="emergencyTitle" class="genInfo uk-text-center">
-                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                    EMERGENCY WARNING SIGNS</h4>
-                <ul>
-                    <li>Trouble breathing</li>
-                    <li>Persistent pain and/or pressure in chest area</li>
-                    <li>Inability to wake or stay awake</li>
-                    <li>New confusion</li>
-                    <li>Blush lips and/or face</li>
-                </ul>
-                <h4 id="symptomsTitle" class="genInfo uk-text-center">
-                    <i class="fa fa-thermometer-half" aria-hidden="true"></i>
-                    Common Symptoms</h4>
-                <ul>
-                    <li>Fever / chills</li>
-                    <li>Shortness of breath</li>
-                    <li>Coughing</li>
-                    <li>Fatigue</li>
-                    <li>Sore throat</li>
-                    <li>Congestion</li>
-                    <li>Nausea</li>
-                </ul>
-                <h4 id="protectTitle"class="genInfo uk-text-center">
-                    <i class="fa fa-medkit" aria-hidden="true"></i>  
-                    Protect Yourself!</h4>
-                <ul>
-                    <li>Wash your hands often</li>
-                    <li>Avoid close contact</li>
-                    <li>Wear a mask around mouth and nose when around others</li>
-                    <li>Clean and disinfect often</li>
-                    <li>Monitor your personal health and symptoms</li>
-                </ul>
-                <img src="https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1437&q=80" width="300px">
+
+                <div class="uk-grid-medium uk-child-width-expand@s uk-text-center" uk-grid>
+                    <div>
+                        <div class="uk-card ">
+                            <h4 id="emergencyTitle" class="genInfo uk-text-center">
+                                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                EMERGENCY WARNING SIGNS</h4>
+                            <ul class="uk-text-left">
+                                <li>Trouble breathing</li>
+                                <li>Persistent pain and/or pressure in chest area</li>
+                                <li>Inability to wake or stay awake</li>
+                                <li>New confusion</li>
+                                <li>Blush lips and/or face</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card ">
+                            <img src="https://3pw8zx30ta4c3jegjv14ssuv-wpengine.netdna-ssl.com/wp-content/uploads/sites/2/2019/01/PI-after-PE.jpg" width="350px">
+                        </div>
+                    </div>
+                </div>
 
 
+
+                <div class="uk-grid-medium uk-child-width-expand@s uk-text-center" uk-grid>
+                    <div>
+                        <div class="uk-card ">
+                            <h4 id="symptomsTitle" class="genInfo uk-text-center">
+                                <i class="fa fa-thermometer-half" aria-hidden="true"></i>
+                                Common Symptoms</h4>
+                            <ul class="uk-text-left">
+                                <li>Fever / chills</li>
+                                <li>Shortness of breath</li>
+                                <li>Coughing</li>
+                                <li>Fatigue</li>
+                                <li>Sore throat</li>
+                                <li>Congestion</li>
+                                <li>Nausea</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card ">
+                            <img src="https://media.self.com/photos/5c1939dcc9860e611e94f176/4:3/w_2560%2Cc_limit/woman-coughing.jpg" width="350px">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-grid-medium uk-child-width-expand@s uk-text-center spacer" uk-grid>
+                    <div>
+                        <div class="uk-card ">
+                            <h4 id="protectTitle"class="genInfo uk-text-center">
+                                <i class="fa fa-medkit" aria-hidden="true"></i>  
+                                Protect Yourself!</h4>
+                            <ul class="uk-text-left">
+                                <li>Wash your hands often</li>
+                                <li>Avoid close contact</li>
+                                <li>Wear a mask around mouth and nose when around others</li>
+                                <li>Clean and disinfect often</li>
+                                <li>Monitor your personal health and symptoms</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card ">
+                            <img src="https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1437&q=80" width="350px">
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="uk-text-center">
                 <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html"
-                    target="_blank">Source: Center for Disease Control (CDC)</a>
+                target="_blank">Source: Center for Disease Control (CDC)</a>
             </div>
         </div>
     </div>

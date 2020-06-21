@@ -16,6 +16,10 @@ a:hover {
     color:#8a2be2;
 }
 
+.spacer {
+    margin-bottom: 50px;
+}
+
 /* Navbar */
 #pagetitle {
     color: white;
@@ -50,10 +54,16 @@ a:hover {
     color:#3d3bbb;
 }
 
+.genInfo {
+    margin-left: 15px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
 h4.genInfo {
     color: white;
     padding: 5px;
-    max-width: 400px;
+    max-width: 550px;
 }
 
 #emergencyTitle {
@@ -68,30 +78,15 @@ h4.genInfo {
     background:#196751;
 }
 
-
-.uk-container-large {
-    background-color: whitesmoke;
-    border-radius: 10px;
-    color: grey;
-}
-
-.genInfo {
-    margin-left: 15px;
-    margin-top: 0;
-    padding-top: 0;
-}
-
 #h2 {
     margin-top: 10px;
 }
 
-.resources {
-    margin-left: 30px;
-}
 /* Resources section */
-.externalResources {
+.externalResources, #Stats {
     /* background:linear-gradient(#2c1567, #3d3bbb); */
     background: #3d3bbb;
+    color: white;
     border-radius: 5px;
     padding: 1em;
 }
@@ -115,13 +110,6 @@ h4.genInfo {
 
 .uk-card-title {
     font: white;
-}
-
-
-/* external links card */
-
-.spacer {
-    margin-bottom: 50px;
 }
 
 /* Footer */
