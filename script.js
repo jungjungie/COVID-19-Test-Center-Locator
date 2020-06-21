@@ -51,7 +51,7 @@
             for (var i = 0; i < statesData.length; i++) {
                 var org = statesData[i].alternate_name;
                 if(statesData[i].physical_address.length !==0){
-                    var add = statesData[i].physical_address[0].address_1;
+                    var add = statesData[i].physical_address[0].address_1 + ", " + statesData[i].physical_address[0].city + ", "+ statesData[i].physical_address[0].state_province + " " + statesData[i].physical_address[0].postal_code;
                     var formattedAdd = statesData[i].physical_address[0].address_1;
                 }
                 data.push({name: org, address: add,formatAdd: formattedAdd, div: divNum});
@@ -145,7 +145,7 @@
                     data: data
                 }).then(function(latLongData) {
                     console.log(latLongData);
-                    var formattedAdd = latLongData.results[0].address_components[0].short_name + " " +latLongData.results[0].address_components[1].short_name + ", " + latLongData.results[0].address_components[2].short_name + ", " + latLongData.results[0].address_components[3].short_name + ", " + latLongData.results[0].address_components[5].long_name;
+                    var formattedAdd = latLongData.results[0].address_components[0].short_name + " " +latLongData.results[0].address_components[1].short_name;
                     // Converts address to latitude & longitude
                     var latitude = latLongData.results[0].geometry.location.lat;
                     var longitude = latLongData.results[0].geometry.location.lng;
@@ -173,7 +173,7 @@
                         //If the first 4 address digits match then this must be the org's location
                         if(tempStringData == tempStringFormatAdd){
                             //Adds the org name + address to our label
-                            contentString.content ="<div class=\"uk-text-center\">"+ data[x].name + "</div><div>"+formattedAdd+"</div>";
+                            contentString.content ="<div class=\"uk-text-center\">"+ data[x].name + "</div><div>"+data[x].address+"</div>"+"<a target=\"_blank\" href=\"http://www.google.com/search?&q="+data[x].name+"+"+data[x].address + "\">Search Location</a>";
                             //Returns the div id and stores it in contentString object w/ property div
                             contentString.div = "div"+data[x].div;
                         }
