@@ -122,38 +122,128 @@ function getLocation() {
                 else if (openHour[x].day == 2) {
                     openHour[x].day = "Tues. | "
                 }
-                else if (openHour[x].day == 3) {
-                    openHour[x].day = "Wed. | ";
-                }
-                else if (openHour[x].day == 4) {
-                    openHour[x].day = "Thurs. | ";
-                }
-                else if (openHour[x].day == 5) {
-                    openHour[x].day = "Fri. | ";
-                }
-                else if (openHour[x].day == 6) {
-                    openHour[x].day = "Sat. | ";
-                }
-                else if (openHour[x].day == 7) {
-                    openHour[x].day = "Sun. | ";
-                }
-                // console.log(openHour[x].day);
+                data.push({name: org, address: add,formatAdd: formattedAdd});
             }
-            // //Loops through State Data to get hour of operation times and days
-            for (var x = 0; x < openHour.length; x++) {
-                buildTimes += openHour[x].times + " " + openHour[x].day + "\n";
-                // console.log(x + "building time");
+            console.log(data);
+            // EXTRACT CODE INTO VARIABLES HERE
+            for (var i = 0; i < statesData.length; i++) {
+                console.log("Gathering data");
+                //Create elements
+                var div = $("<div>").attr("class", "uk-card uk-card-hover uk-animation-slide-bottom uk-card-default uk-card-body uk-width-1-1");
+                var pTag = $("<p>").attr("class", "uk-card-title");
+                var pTag2 = $("<p>");
+                var pTag3 = $("<p>");
+                var pTag4 = $("<p>");
+                //Gather info
+                var locName = statesData[i].alternate_name;
+                if(statesData[i].physical_address.length !==0){
+                    var street = statesData[i].physical_address[0].address_1;
+                    var city = statesData[i].physical_address[0].city;
+                    var postalCode = statesData[i].physical_address[0].postal_code;
+                    var state = statesData[i].physical_address[0].state_province;
+                    var address = street + ", " + city + ", " + state + ", " + postalCode;
+                }
+                if(statesData[i].phones.length !== 0)
+                    var phone = statesData[i].phones[0].number;
+                var openHour = [];
+                var buildTimes = "";
+                // Build an array of objects for hours of operations
+                for (var x = 0; x < statesData[i].regular_schedule.length; x++) {
+                    openHour.push({ times: "", day: "" });
+                    openHour[x].times = statesData[i].regular_schedule[x].opens_at + "-" + statesData[i].regular_schedule[x].closes_at;
+                    openHour[x].day = statesData[i].regular_schedule[x].weekday;
+                    // console.log("Retrieving schedule");
+                }
+                //Fill created p tag and append to  div item
+                pTag.html(locName);
+                pTag2.html("Address: " + address);
+                pTag4.html(phone);
+    
+                // //Since the days come in integers we must switch them to days
+                // console.log(openHour.length);
+                for (var x = 0; x < openHour.length; x++) {
+                    if (openHour[x].day == 1) {
+                        openHour[x].day = "Mon. | ";
+                    }
+                    else if (openHour[x].day == 2) {
+                        openHour[x].day = "Tues. | "
+                    }
+                    else if (openHour[x].day == 3) {
+                        openHour[x].day = "Wed. | ";
+                    }
+                    else if (openHour[x].day == 4) {
+                        openHour[x].day = "Thurs. | ";
+                    }
+                    else if (openHour[x].day == 5) {
+                        openHour[x].day = "Fri. | ";
+                    }
+                    else if (openHour[x].day == 6) {
+                        openHour[x].day = "Sat. | ";
+                    }
+                    else if (openHour[x].day == 7) {
+                        openHour[x].day = "Sun. | ";
+                    }
+                    // console.log(openHour[x].day);
+                }
+                // //Loops through State Data to get hour of operation times and days
+                for (var x = 0; x < openHour.length; x++) {
+                    buildTimes += openHour[x].times + " " + openHour[x].day + "\n";
+                    // console.log(x + "building time");
+                }
+                if (buildTimes == "") {
+                    buildTimes = "Hours Not Available";
+                }
+                pTag3.html("Hours: " + buildTimes);
+                // //Append Loc, Address, Phone & Hours
+                div.append(pTag, pTag2, pTag4, pTag3);
+                // div.append(pTag4);
+                //Append list item to page
+                $("#appendLocations").append(div);
+                // console.log("Appended");
+                // Google Maps API - drops markers and info on test locations; Pass in data array for label windows
+                $.ajax({
+                    url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + data[i].address + "&key=AIzaSyCNTqY8YLLPTLLEL4RHISF8IHShThD3QQs",
+                    method: "GET",
+                    data: data
+                }).then(function(latLongData) {
+                    console.log(latLongData);
+                    var formattedAdd = latLongData.results[0].address_components[0].short_name + " " +latLongData.results[0].address_components[1].short_name + ", " + latLongData.results[0].address_components[2].short_name + ", " + latLongData.results[0].address_components[3].short_name + ", " + latLongData.results[0].address_components[5].long_name;
+                    // Converts address to latitude & longitude
+                    var latitude = latLongData.results[0].geometry.location.lat;
+                    var longitude = latLongData.results[0].geometry.location.lng;
+                    var testLocation = {lat: latitude, lng: longitude };
+                    console.log(latitude);
+                    console.log(longitude);
+                    //Drops a pin at location
+                    var marker = new google.maps.Marker({
+                        position: testLocation, 
+                        map: map,
+                        animation: google.maps.Animation.DROP});
+                    //Creates information window for marker
+                    //Iterates through data array which holds our org names and addresses in object form
+                    for(var x=0; x < data.length; x++){
+                        //Temp variables to compare
+                        var tempStringData = "";
+                        var tempStringFormatAdd = "";
+                        //For loop to build first 4 address digits
+                        for(var y=0; y < 4; y++){
+                            //Feeds in one char at a time to temp variables
+                            tempStringData += data[x].address.charAt(y);
+                            tempStringFormatAdd += formattedAdd.charAt(y);
+                        }
+                        //If the first 4 address digits match then this must be the org's location
+                        if(tempStringData == tempStringFormatAdd)
+                            //Adds the org name + address to our label
+                            var contentString ="<div class=\"uk-text-center\">"+ data[x].name + "</div><div>"+formattedAdd+"</div>";
+                    }
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+                    //Creating on click for location description
+                    marker.addListener("click", function() {
+                        infowindow.open(map, this);
+                    });
+                });
             }
-            if (buildTimes == "") {
-                buildTimes = "Hours Not Available";
-            }
-            pTag3.html("Hours: " + buildTimes);
-            // //Append Loc, Address, Phone & Hours
-            div.append(pTag, pTag2, pTag4, pTag3);
-            // div.append(pTag4);
-            //Append list item to page
-            $("#appendLocations").append(div);
-            // console.log("Appended");
-        }
-    });
-}
+        }});
+    }
