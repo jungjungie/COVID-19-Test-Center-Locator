@@ -47,15 +47,19 @@
             console.log(statesData.length);
             //Building all organization names and address to feed into google call; We'll need to know all in the array before we kick off google api call to create the marker labels
             var data = [];
+            var divNum = 0;
             for (var i = 0; i < statesData.length; i++) {
                 var org = statesData[i].alternate_name;
                 if(statesData[i].physical_address.length !==0){
                     var add = statesData[i].physical_address[0].address_1;
                     var formattedAdd = statesData[i].physical_address[0].address_1;
                 }
-                data.push({name: org, address: add,formatAdd: formattedAdd});
+                data.push({name: org, address: add,formatAdd: formattedAdd, div: divNum});
+                divNum++;
             }
             console.log(data);
+            //Used for assigning id to created divs below
+            var idCount = 0;
             // EXTRACT CODE INTO VARIABLES HERE
             for (var i = 0; i < statesData.length; i++) {
                 console.log("Gathering data");
@@ -127,7 +131,10 @@
                 pTag3.html("Hours: " + buildTimes);
                 // //Append Loc, Address, Phone & Hours
                 div.append(pTag, pTag2, pTag4, pTag3);
-                // div.append(pTag4);
+                // Adds a id to created div
+                var divId = "div"+idCount;
+                div.attr("id", divId);
+                idCount++;
                 //Append list item to page
                 $("#appendLocations").append(div);
                 // console.log("Appended");
@@ -150,6 +157,7 @@
                         position: testLocation, 
                         map: map,
                         animation: google.maps.Animation.DROP});
+                    var contentString = {content: "",div: ""}
                     //Creates information window for marker
                     //Iterates through data array which holds our org names and addresses in object form
                     for(var x=0; x < data.length; x++){
@@ -163,16 +171,23 @@
                             tempStringFormatAdd += formattedAdd.charAt(y);
                         }
                         //If the first 4 address digits match then this must be the org's location
-                        if(tempStringData == tempStringFormatAdd)
+                        if(tempStringData == tempStringFormatAdd){
                             //Adds the org name + address to our label
-                            var contentString ="<div class=\"uk-text-center\">"+ data[x].name + "</div><div>"+formattedAdd+"</div>";
+                            contentString.content ="<div class=\"uk-text-center\">"+ data[x].name + "</div><div>"+formattedAdd+"</div>";
+                            //Returns the div id and stores it in contentString object w/ property div
+                            contentString.div = "div"+data[x].div;
+                        }
                     }
+                    // console.log(elmnt);
                     var infowindow = new google.maps.InfoWindow({
-                        content: contentString
+                        content: contentString.content
                     });
                     //Creating on click for location description
                     marker.addListener("click", function() {
                         infowindow.open(map, this);
+                        //Gathers the top position of created div and enables us to scroll to that position
+                        var topPos = document.getElementById(contentString.div).offsetTop;
+                        document.getElementById("scroll").scrollTop = topPos;
                     });
                 });
             }
