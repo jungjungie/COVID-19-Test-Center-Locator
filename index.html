@@ -22,9 +22,10 @@
                 </div>
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav">
-                        <li class="uk-active"><a href="index.html">Informaton</a></li>
-                        <li><a href="searchPage.html">Find A Location</a></li>
-                        <div class="uk-navbar-item ">
+                        <li><a href="#locationNav">Find A Location</a></li>
+                        <li><a href="#statsNav">Statistics</a></li>
+                        <li><a href="#infoNav">Informaton</a></li>
+                        <!-- <div class="uk-navbar-item ">
 
                             <select class="uk-input uk-form-width-small">
                                 <option value="">-State-</option>
@@ -41,7 +42,7 @@
                                 <option value="utah">Utah</option>
                                 <option value="washington">Washington</option>
                             </select>
-                        </div>
+                        </div> -->
                     </ul>
                 </div>
             </nav>
@@ -50,7 +51,7 @@
 </header>
 
 <body>
-    <div class="uk-container whitebg">
+    <div id="locationNav" class="uk-container whitebg">
         <section class="uk-grid-small uk-child-width-1-2@s uk-flex-center uk-text-center" uk-grid>
             <section class="uk-panel uk-panel-scrollable">
                 <div id="selectForm " class="uk-form-select whitebg" data-uk-form-select>
@@ -83,11 +84,11 @@
                 <!-- <p id="address">1600 Amphitheatre Pkwy, Mountain View, CA 94043</p> -->
             </section>
         </section>
-        <section>
+        <section id="statsNav">
             <div id="Stats" class="uk-card uk-card-default uk-card-body whitebg uk-width-1-1">Stats Tracker</div>
         </section>
     </div>
-    <div class="uk-container whitebg">
+    <div id="infoNav" class="uk-container whitebg">
         <!-- General Information -->
         <div class="uk-card uk-card-default uk-width-expand uk-card-body">
             <div class="uk-card-header">
@@ -132,19 +133,24 @@
             </div>
         </div>
     </div>
-    <div class="uk-container whitebg">
-        <!-- Additional Resources -->
-        <div class="uk-card uk-card-default uk-card-body uk-padding externalResources">
-            <h1 class="uk-card-title" id="resourceTitle">
-                External Resources:
+
+    <!-- Additional Resources -->
+    <div class="uk-container whitebg spacer">
+        <div class="uk-card uk-card-default uk-card-body externalResources">
+            <h1 id="resourceTitle" class="uk-card-title uk-text-center">
+                Resources
             </h1>
         </div>
-        <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center uk-margin-large-top" id="externalLinks" uk-grid>
-            <div>
-                <div class="uk-card uk-padding uk-card-default uk-card-hover uk-card-body">
+    </div>
+    <div class="uk-container">
+        <div class="uk-grid-medium uk-child-width-expand@s uk-text-center" uk-grid>
+
+            <!-- CDC Card -->
+            <section>
+                <div class="uk-card uk-card-default uk-card-body resourcesCrd cdcCard">
                     <h3 class="uk-card-title">
                         <span class="uk-link-heading">
-                            Center for Disease Control
+                            <a href="https://www.cdc.gov/" target="_blank">Center for Disease Control</a>
                         </span>
                     </h3>
                     <ul class="uk-list uk-link-text">
@@ -158,13 +164,16 @@
                                 to
                                 Protect Yourself & Others</a></li>
                     </ul>
+
                 </div>
-            </div>
-            <div>
-                <div class="uk-card uk-card-default uk-padding uk-card-hover uk-card-body">
+            </section>
+
+            <!-- WHO Card -->
+            <section class="spacer">
+                <div class="uk-card uk-card-default uk-card-body resourcesCrd whoCard">
                     <h3 class="uk-card-title">
                         <span class="uk-link-heading">
-                            World Health Organization
+                            <a href="https://www.who.int/" target="_blank">World Health Organization</a>
                         </span>
                     </h3>
                     <ul class="uk-list uk-link-text">
@@ -177,11 +186,18 @@
                                 Situation Report</a></li>
                     </ul>
                 </div>
-            </div>
-
+            </section>
         </div>
     </div>
 
+
+    
+    
+
+    
+   
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
     <!-- jQuery -->

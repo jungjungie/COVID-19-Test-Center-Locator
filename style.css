@@ -59,12 +59,29 @@ a:hover {
 .resources {
     margin-left: 30px;
 }
-/* External resources tab */
+/* Resources section */
 .externalResources {
-    background:linear-gradient(#2c1567, #3d3bbb);
+    /* background:linear-gradient(#2c1567, #3d3bbb); */
+    background: #3d3bbb;
+    border-radius: 5px;
+    padding: 1em;
 }
+
 #resourceTitle {
-    font: white;
+     color: white;
+}
+
+.resourcesCrd {
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.cdcCard {
+    border-left: 5px solid #0339f8;
+}
+
+.whoCard {
+    border-left: 5px solid #8a2be2;
 }
 
 .uk-card-title {
@@ -92,6 +109,6 @@ a:hover {
  
 /* external links card */
 
-#externalLinks {
-    margin-botom: 50px;
+.spacer {
+    margin-bottom: 50px;
 }
