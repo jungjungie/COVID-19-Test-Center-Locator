@@ -172,3 +172,30 @@
             }
         });
     }
+
+//US Stats tracker API below
+
+    var statsURL = "https://api.covid19api.com/total/country/united-states";
+
+// console.log(statsURL)
+
+$.ajax({
+    url: statsURL,
+    method: "GET"
+}).then(function(statsAmerica) {
+
+    // console.log(statsAmerica[statsAmerica.length-1]);
+
+    console.log(statsAmerica[statsAmerica.length-1].Confirmed)
+    $(".confirmed").text(statsAmerica[statsAmerica.length-1].Confirmed);
+
+    console.log(statsAmerica[statsAmerica.length-1].Deaths)
+    $(".deaths").text(statsAmerica[statsAmerica.length-1].Deaths);
+
+    console.log(statsAmerica[statsAmerica.length-1].Recovered)
+    $(".recovered").text(statsAmerica[statsAmerica.length-1].Recovered);
+
+    console.log(statsAmerica[statsAmerica.length-1].Active)
+    $(".active").text(statsAmerica[statsAmerica.length-1].Active);
+
+});
