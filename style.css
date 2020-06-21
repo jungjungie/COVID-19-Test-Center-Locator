@@ -24,6 +24,10 @@ a:hover {
 
 
 /* General Info Page */
+.whitebg{
+    margin-top: 50px;
+}
+
 #genInfo {
     height: 200px;
 }
@@ -55,9 +59,23 @@ a:hover {
 .resources {
     margin-left: 30px;
 }
+/* External resources tab */
+.externalResources {
+    background:linear-gradient(#2c1567, #3d3bbb);
+}
+#resourceTitle {
+    font: white;
+}
 
+.uk-card-title {
+    font: white;
+}
 
 /* Locations Page */
+
+.uk-panel-scrollable {
+    height: 400px
+}
 
 #selectForm {
     height: 200px;
@@ -72,3 +90,8 @@ a:hover {
     height: 200px;
 }
  
+/* external links card */
+
+#externalLinks {
+    margin-botom: 50px;
+}
