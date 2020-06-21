@@ -3,14 +3,22 @@
     color: grey;
 }
 
-a:hover {
-    text-decoration: none;
-}
-
 .whitebg {
     background-color: white;
 }
 
+a, .grayTxt {
+    color: #555;
+}
+
+a:hover {
+    text-decoration: none;
+    color:#8a2be2;
+}
+
+.spacer {
+    margin-bottom: 50px;
+}
 
 /* Navbar */
 #pagetitle {
@@ -22,57 +30,7 @@ a:hover {
     box-shadow: 0px 3px 10px #b2b2b2;
 }
 
-
-/* General Info Page */
-.whitebg{
-    margin-top: 50px;
-}
-
-#genInfo {
-    height: 200px;
-}
-
-.uk-container-large {
-    background-color: whitesmoke;
-    border-radius: 10px;
-    color: grey;
-}
-
-#genInfo {
-    text-align: center;
-    padding: 5px;
-    margin-top: 5px;
-    height: 50px;
-    margin-bottom: 0px;
-}
-
-.genInfo {
-    margin-left: 15px;
-    margin-top: 0;
-    padding-top: 0;
-}
-
-#h2 {
-    margin-top: 10px;
-}
-
-.resources {
-    margin-left: 30px;
-}
-/* External resources tab */
-.externalResources {
-    background:linear-gradient(#2c1567, #3d3bbb);
-}
-#resourceTitle {
-    font: white;
-}
-
-.uk-card-title {
-    font: white;
-}
-
-/* Locations Page */
-
+/* Locations Section */
 .uk-panel-scrollable {
     height: 400px
 }
@@ -90,8 +48,72 @@ a:hover {
     height: 200px;
 }
  
-/* external links card */
+/* General Info Page */
 
-#externalLinks {
-    margin-botom: 50px;
+.bluePurpleTxt {
+    color:#3d3bbb;
+}
+
+.genInfo {
+    margin-left: 15px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+h4.genInfo {
+    color: white;
+    padding: 5px;
+    max-width: 550px;
+}
+
+#emergencyTitle {
+    background: red;
+}
+
+#symptomsTitle {
+    background:#ffae42;
+}
+
+#protectTitle {
+    background:#196751;
+}
+
+#h2 {
+    margin-top: 10px;
+}
+
+/* Resources section */
+.externalResources, #Stats {
+    /* background:linear-gradient(#2c1567, #3d3bbb); */
+    background: #3d3bbb;
+    color: white;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+#resourceTitle {
+     color: white;
+}
+
+.resourcesCrd {
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.cdcCard {
+    border-left: 5px solid #0339f8;
+}
+
+.whoCard {
+    border-left: 5px solid #8a2be2;
+}
+
+.uk-card-title {
+    font: white;
+}
+
+/* Footer */
+footer {
+    background: #444;
+    color: white;
 }
