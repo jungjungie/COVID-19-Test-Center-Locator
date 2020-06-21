@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <!-- Font Awesome Icons -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- UI Kit -->
-    <link rel="stylesheet" href="uikit.css" />
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.css" />
+
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
@@ -57,12 +59,12 @@
 <body>
     <div id="locationNav" class="uk-container whitebg spacer">
         <section class="uk-grid-small uk-child-width-1-2@s uk-flex-center uk-text-center" uk-grid>
-            <section class="uk-panel uk-panel-scrollable">
+            <section id="scroll" class="uk-panel uk-panel-scrollable">
                 <div id="selectForm " class="uk-form-select whitebg" data-uk-form-select>
                     <h3>Select A State</h3>
                     <!--onchange to call the function on every change. ID "stateSelection" to get value from script.js-->
                     <select id="stateSelection" onchange="getLocation()">
-                        <option value="">---------</option>
+                        <option value="State">State</option>
                         <option value="arizona">Arizona</option>
                         <option value="california">California</option>
                         <option value="delaware">Delaware</option>
@@ -88,12 +90,14 @@
                 <!-- <p id="address">1600 Amphitheatre Pkwy, Mountain View, CA 94043</p> -->
             </section>
         </section>
-    </div>
-
-    <!-- Stats -->
-    <div id="statsNav" class="uk-container spacer">
-        <section id="">
-            <div id="Stats" class="uk-card uk-card-default uk-card-body uk-width-1-1 uk-text-center">Stats Tracker</div>
+        <!-- Stats -->
+        <section>
+            <div class="uk-card uk-card-default uk-card-body whitebg uk-width-1-1"><h3>Live COVID-19 Statistics: United States</h3>
+                <div>Confirmed cases:</div><div class="confirmed"></div>
+                <div>Confirmed deaths:</div><div class="deaths"></div>
+                <div>Recoveries:</div><div class="recovered"></div>
+                <div>Active cases:</div><div class="active"></div>
+            </div>
         </section>
     </div>
 
