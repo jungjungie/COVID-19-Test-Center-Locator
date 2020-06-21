@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Font Awesome Icons -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- UI Kit -->
     <link rel="stylesheet" href="uikit.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
@@ -88,39 +92,31 @@
             <div id="Stats" class="uk-card uk-card-default uk-card-body whitebg uk-width-1-1">Stats Tracker</div>
         </section>
     </div>
-    <div id="infoNav" class="uk-container whitebg">
-        <!-- General Information -->
+
+    <!-- General Information -->
+    <div id="infoNav" class="uk-container whitebg spacer">
         <div class="uk-card uk-card-default uk-width-expand uk-card-body">
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">COVID-19 GENERAL HEALTH INFORMATION</h3>
-                    </div>
-                </div>
-            </div>
+            <h2 class="uk-margin-remove-bottom uk-text-center bluePurpleTxt">COVID-19 GENERAL HEALTH INFORMATION</h2>
+
             <div class="uk-card-body">
-                <h3 class="genInfo" id="h2">COVID-19 is a global pandemic that has lead to nearly 500,000 deaths
+                <h3 class="genInfo grayTxt" id="h2">COVID-19 is a global pandemic that has lead to nearly 500,000 deaths
                     worldwide. Please take the time to educate yourself on how to stay healthy. For testing and clinic
                     based inquiries, please use our search bar to locate test centers and clinics near you.</h3>
-                <h4 class="genInfo">EMERGENCY WARNING SIGNS</h4>
+                <h4 id="emergencyTitle" class="genInfo uk-text-center">
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    EMERGENCY WARNING SIGNS</h4>
                 <ul>
-                    <li>Trouble Breathing</li>
-                    <li>Persistent Pain and/or Pressure in Chest Area</li>
+                    <li>Trouble breathing</li>
+                    <li>Persistent pain and/or pressure in chest area</li>
                     <li>Inability to wake or stay awake</li>
-                    <li>New Confusion</li>
-                    <li>Blush Lips and/or Face</li>
+                    <li>New confusion</li>
+                    <li>Blush lips and/or face</li>
                 </ul>
-                <h4 class="genInfo">Protect Yourself. Everyone Should:</h4>
+                <h4 id="symptomsTitle" class="genInfo uk-text-center">
+                    <i class="fa fa-thermometer-half" aria-hidden="true"></i>
+                    Common Symptoms</h4>
                 <ul>
-                    <li>Wash your hands often</li>
-                    <li>Avoid close contact</li>
-                    <li>Wear a mask around mouth and nose when around others</li>
-                    <li>Clean and disinfect often</li>
-                    <li>Monitor your personal health ans symptoms</li>
-                </ul>
-                <h4 class="genInfo">Symptoms:</h4>
-                <ul>
-                    <li>Fever/Chills</li>
+                    <li>Fever / chills</li>
                     <li>Shortness of breath</li>
                     <li>Coughing</li>
                     <li>Fatigue</li>
@@ -128,8 +124,21 @@
                     <li>Congestion</li>
                     <li>Nausea</li>
                 </ul>
+                <h4 id="protectTitle"class="genInfo uk-text-center">
+                    <i class="fa fa-medkit" aria-hidden="true"></i>  
+                    Protect Yourself!</h4>
+                <ul>
+                    <li>Wash your hands often</li>
+                    <li>Avoid close contact</li>
+                    <li>Wear a mask around mouth and nose when around others</li>
+                    <li>Clean and disinfect often</li>
+                    <li>Monitor your personal health and symptoms</li>
+                </ul>
+                <img src="https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1437&q=80" width="300px">
+
+
                 <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html"
-                    target="_blank">Source and for More Information: CDC (Center for Disease Control)</a>
+                    target="_blank">Source: Center for Disease Control (CDC)</a>
             </div>
         </div>
     </div>
@@ -138,7 +147,7 @@
     <div class="uk-container whitebg spacer">
         <div class="uk-card uk-card-default uk-card-body externalResources">
             <h1 id="resourceTitle" class="uk-card-title uk-text-center">
-                Resources
+                VISIT THE CDC OR WHO WEBSITES FOR MORE INFORMATION
             </h1>
         </div>
     </div>
@@ -149,9 +158,11 @@
             <section>
                 <div class="uk-card uk-card-default uk-card-body resourcesCrd cdcCard">
                     <h3 class="uk-card-title">
-                        <span class="uk-link-heading">
-                            <a href="https://www.cdc.gov/" target="_blank">Center for Disease Control</a>
-                        </span>
+                        <a href="https://www.cdc.gov/" target="_blank">
+                            <span class="uk-link-heading">
+                                Center for Disease Control
+                            </span>
+                        </a>
                     </h3>
                     <ul class="uk-list uk-link-text">
                         <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html">Symptoms
@@ -172,9 +183,11 @@
             <section class="spacer">
                 <div class="uk-card uk-card-default uk-card-body resourcesCrd whoCard">
                     <h3 class="uk-card-title">
-                        <span class="uk-link-heading">
-                            <a href="https://www.who.int/" target="_blank">World Health Organization</a>
-                        </span>
+                        <a href="https://www.who.int/" target="_blank">
+                            <span class="uk-link-heading">
+                               World Health Organization
+                            </span>
+                        </a>
                     </h3>
                     <ul class="uk-list uk-link-text">
                         <li><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">Public
@@ -190,13 +203,9 @@
         </div>
     </div>
 
-
-    
-    
-
-    
-   
-    
+    <footer class="uk-card uk-text-center" uk-sticky="bottom: true">
+        <p class="uk-padding">&copy; Copyright 2020</p>
+    </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>

@@ -3,14 +3,18 @@
     color: grey;
 }
 
-a:hover {
-    text-decoration: none;
-}
-
 .whitebg {
     background-color: white;
 }
 
+a, .grayTxt {
+    color: #555;
+}
+
+a:hover {
+    text-decoration: none;
+    color:#8a2be2;
+}
 
 /* Navbar */
 #pagetitle {
@@ -22,28 +26,53 @@ a:hover {
     box-shadow: 0px 3px 10px #b2b2b2;
 }
 
-
-/* General Info Page */
-.whitebg{
-    margin-top: 50px;
+/* Locations Section */
+.uk-panel-scrollable {
+    height: 400px
 }
 
-#genInfo {
+#selectForm {
     height: 200px;
 }
+
+#map {
+    height: 400px; 
+    width: 100%;
+}
+
+#stats {
+    height: 200px;
+}
+ 
+/* General Info Page */
+
+.bluePurpleTxt {
+    color:#3d3bbb;
+}
+
+h4.genInfo {
+    color: white;
+    padding: 5px;
+    max-width: 400px;
+}
+
+#emergencyTitle {
+    background: red;
+}
+
+#symptomsTitle {
+    background:#ffae42;
+}
+
+#protectTitle {
+    background:#196751;
+}
+
 
 .uk-container-large {
     background-color: whitesmoke;
     border-radius: 10px;
     color: grey;
-}
-
-#genInfo {
-    text-align: center;
-    padding: 5px;
-    margin-top: 5px;
-    height: 50px;
-    margin-bottom: 0px;
 }
 
 .genInfo {
@@ -88,27 +117,15 @@ a:hover {
     font: white;
 }
 
-/* Locations Page */
 
-.uk-panel-scrollable {
-    height: 400px
-}
-
-#selectForm {
-    height: 200px;
-}
-
-#map {
-    height: 400px; 
-    width: 100%;
-}
-
-#stats {
-    height: 200px;
-}
- 
 /* external links card */
 
 .spacer {
     margin-bottom: 50px;
+}
+
+/* Footer */
+footer {
+    background: #444;
+    color: white;
 }
