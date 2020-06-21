@@ -44,11 +44,12 @@
             for (var i = 0; i < statesData.length; i++) {
                 var org = statesData[i].alternate_name;
                 if(statesData[i].physical_address.length !==0){
-                    var add = statesData[i].physical_address[0].address_1+", "+statesData[i].physical_address[0].city+", "+statesData[i].physical_address[0].state_province+", "+statesData[i].physical_address[0].postal_code
+                    var add = statesData[i].physical_address[0].address_1;
                     var formattedAdd = statesData[i].physical_address[0].address_1;
                 }
                 data.push({name: org, address: add,formatAdd: formattedAdd});
             }
+            console.log(data);
             // EXTRACT CODE INTO VARIABLES HERE
             for (var i = 0; i < statesData.length; i++) {
                 console.log("Gathering data");
@@ -131,8 +132,7 @@
                     data: data
                 }).then(function(latLongData) {
                     console.log(latLongData);
-                    var formattedAdd = latLongData.results[0].address_components[0].short_name + " " +latLongData.results[0].address_components[1].short_name + ", " + latLongData.results[0].address_components[2].short_name + ", " + latLongData.results[0].address_components[4].short_name;
-                    console.log(formattedAdd);
+                    var formattedAdd = latLongData.results[0].address_components[0].short_name + " " +latLongData.results[0].address_components[1].short_name + ", " + latLongData.results[0].address_components[2].short_name + ", " + latLongData.results[0].address_components[3].short_name + ", " + latLongData.results[0].address_components[5].long_name;
                     // Converts address to latitude & longitude
                     var latitude = latLongData.results[0].geometry.location.lat;
                     var longitude = latLongData.results[0].geometry.location.lng;
@@ -145,7 +145,22 @@
                         map: map,
                         animation: google.maps.Animation.DROP});
                     //Creates information window for marker
-                    var contentString ="<div class=\"uk-text-center\">"+formattedAdd+"</div>";
+                    //Iterates through data array which holds our org names and addresses in object form
+                    for(var x=0; x < data.length; x++){
+                        //Temp variables to compare
+                        var tempStringData = "";
+                        var tempStringFormatAdd = "";
+                        //For loop to build first 4 address digits
+                        for(var y=0; y < 4; y++){
+                            //Feeds in one char at a time to temp variables
+                            tempStringData += data[x].address.charAt(y);
+                            tempStringFormatAdd += formattedAdd.charAt(y);
+                        }
+                        //If the first 4 address digits match then this must be the org's location
+                        if(tempStringData == tempStringFormatAdd)
+                            //Adds the org name + address to our label
+                            var contentString ="<div class=\"uk-text-center\">"+ data[x].name + "</div><div>"+formattedAdd+"</div>";
+                    }
                     var infowindow = new google.maps.InfoWindow({
                         content: contentString
                     });
