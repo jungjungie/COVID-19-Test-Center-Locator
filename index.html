@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="uikit.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
@@ -52,12 +52,12 @@
 <body>
     <div class="uk-container whitebg">
         <section class="uk-grid-small uk-child-width-1-2@s uk-flex-center uk-text-center" uk-grid>
-            <section class="uk-panel uk-panel-scrollable">
+            <section id="scroll" class="uk-panel uk-panel-scrollable">
                 <div id="selectForm " class="uk-form-select whitebg" data-uk-form-select>
                     <h3>Select A State</h3>
                     <!--onchange to call the function on every change. ID "stateSelection" to get value from script.js-->
                     <select id="stateSelection" onchange="getLocation()">
-                        <option value="">---------</option>
+                        <option value="State">State</option>
                         <option value="arizona">Arizona</option>
                         <option value="california">California</option>
                         <option value="delaware">Delaware</option>
