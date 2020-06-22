@@ -79,19 +79,39 @@
             </section>
         </section>
         <!-- Stats -->
-        <section >
-            <div id="statsNav" class="uk-child-width-expand@s whitebg" uk-grid>
-                <div id="statsParent" class="uk-card uk-card-default uk-card-body">
+        <section class="uk-card uk-card-default uk-width-expand uk-card-body" >
+            <h3 id="statsTitle" class="uk-text-center">Live COVID-19 Statistics: United States</h3>
+            <div id="statsNav" class="uk-child-width-expand@s whitebg uk-grid-match" uk-grid>
+                <div id="statsParent" class="uk-card uk-width-1-2">
                     <div id="statsInfo">
-                        <h3>Live COVID-19 Statistics: United States</h3>
-                        <u>Confirmed cases:</u><p class="confirmed uk-text-center minContent"></p>
-                        <u>Active cases:</u><p class="active uk-text-center minContent"></p>
-                        <u>Confirmed deaths:</u><p class="deaths uk-text-center minContent"></p>
-                        <u>Recoveries:</u><p class="recovered uk-text-center minContent"></p>
+                        <!-- <div> -->
+                            <div uk-grid>
+                                <p class="uk-width-1-2"><strong>Confirmed cases:</strong></p>
+                                <p class="confirmed uk-text-center uk-align-left uk-width-1-2 minContent"></p>
+                            </div>
+                        <!-- </div> -->
+                        <!-- <div> -->
+                            <div uk-grid>
+                                <p class="uk-width-1-2"><strong>Active cases:</strong></p>
+                                <p class="active uk-text-center uk-align-left uk-width-1-2 minContent"></p>
+                            </div>
+                        <!-- </div> -->
+                        <!-- <div> -->
+                            <div uk-grid>
+                                <p class="uk-width-1-2"><strong>Confirmed deaths:</strong></p>
+                                <p class="deaths uk-text-center uk-align-left uk-width-1-2 minContent"></p>
+                            </div>
+                        <!-- </div> -->
+                        <!-- <div> -->
+                            <div uk-grid>
+                                <p class="uk-width-1-2"><strong>Recoveries:</strong></p>
+                                <p class="recovered uk-text-center uk-align-left uk-width-1-2 minContent"></p>
+                            </div>
+                        <!-- </div>     -->
                     </div>
                 </div>
-                <div id="chartParent">
-                    <div id="chart" class="uk-card uk-card-default uk-card-body">
+                <div id="chartParent" class="uk-width-1-2">
+                    <div id="chart" class="uk-card ">
                         <canvas id="myChart"></canvas>
                     </div>
                 </div>
@@ -192,7 +212,7 @@
     <div id="additionalRes" class="uk-container whitebg spacer">
         <div class="uk-card uk-card-default uk-card-body externalResources">
             <h1 id="resourceTitle" class="uk-card-title uk-text-center">
-                VISIT THE CDC OR WHO WEBSITES FOR MORE INFORMATION
+                VISIT THE WEBSITES BELOW FOR MORE INFORMATION
             </h1>
         </div>
     </div>
