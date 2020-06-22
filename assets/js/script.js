@@ -220,3 +220,7 @@ $.ajax({
     $(".active").text(statsAmerica[statsAmerica.length-1].Active);
 
 });
+
+
+// Menu Toggler
+UIkit.toggle("#toggle-menu", hide).toggle();
