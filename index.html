@@ -10,11 +10,13 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- UI Kit -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.css" />
 
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
+    <!--chartjs-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 <header>
     <div id="navbg" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"
@@ -77,12 +79,22 @@
             </section>
         </section>
         <!-- Stats -->
-        <section id="statsNav">
-            <div class="uk-card uk-card-default uk-card-body whitebg uk-width-1-1"><h3>Live COVID-19 Statistics: United States</h3>
-                <div>Confirmed cases:</div><div class="confirmed"></div>
-                <div>Confirmed deaths:</div><div class="deaths"></div>
-                <div>Recoveries:</div><div class="recovered"></div>
-                <div>Active cases:</div><div class="active"></div>
+        <section >
+            <div id="statsNav" class="uk-child-width-expand@s whitebg" uk-grid>
+                <div id="statsParent" class="uk-card uk-card-default uk-card-body">
+                    <div id="statsInfo">
+                        <h3>Live COVID-19 Statistics: United States</h3>
+                        <u>Confirmed cases:</u><p class="confirmed uk-text-center minContent"></p>
+                        <u>Active cases:</u><p class="active uk-text-center minContent"></p>
+                        <u>Confirmed deaths:</u><p class="deaths uk-text-center minContent"></p>
+                        <u>Recoveries:</u><p class="recovered uk-text-center minContent"></p>
+                    </div>
+                </div>
+                <div id="chartParent">
+                    <div id="chart" class="uk-card uk-card-default uk-card-body">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -113,7 +125,8 @@
                     </div>
                     <div>
                         <div class="uk-card ">
-                            <img src="https://3pw8zx30ta4c3jegjv14ssuv-wpengine.netdna-ssl.com/wp-content/uploads/sites/2/2019/01/PI-after-PE.jpg" width="350px">
+                            <img src="https://3pw8zx30ta4c3jegjv14ssuv-wpengine.netdna-ssl.com/wp-content/uploads/sites/2/2019/01/PI-after-PE.jpg"
+                                width="350px">
                         </div>
                     </div>
                 </div>
@@ -139,7 +152,8 @@
                     </div>
                     <div>
                         <div class="uk-card ">
-                            <img src="https://media.self.com/photos/5c1939dcc9860e611e94f176/4:3/w_2560%2Cc_limit/woman-coughing.jpg" width="350px">
+                            <img src="https://media.self.com/photos/5c1939dcc9860e611e94f176/4:3/w_2560%2Cc_limit/woman-coughing.jpg"
+                                width="350px">
                         </div>
                     </div>
                 </div>
@@ -147,8 +161,8 @@
                 <div class="uk-grid-medium uk-child-width-expand@s uk-text-center spacer" uk-grid>
                     <div>
                         <div class="uk-card ">
-                            <h4 id="protectTitle"class="genInfo uk-text-center">
-                                <i class="fa fa-medkit" aria-hidden="true"></i>  
+                            <h4 id="protectTitle" class="genInfo uk-text-center">
+                                <i class="fa fa-medkit" aria-hidden="true"></i>
                                 Protect Yourself!</h4>
                             <ul class="uk-text-left">
                                 <li>Wash your hands often</li>
@@ -161,14 +175,15 @@
                     </div>
                     <div>
                         <div class="uk-card ">
-                            <img src="https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1437&q=80" width="350px">
+                            <img src="https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1437&q=80"
+                                width="350px">
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
             <div class="uk-text-center">
                 <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html"
-                target="_blank">Source: Center for Disease Control (CDC)</a>
+                    target="_blank">Source: Center for Disease Control (CDC)</a>
             </div>
         </div>
     </div>
@@ -214,7 +229,7 @@
                     <h3 class="uk-card-title">
                         <a href="https://www.who.int/" target="_blank">
                             <span class="uk-link-heading">
-                               World Health Organization
+                                World Health Organization
                             </span>
                         </a>
                     </h3>
@@ -247,7 +262,7 @@
         </div>
         
     </footer>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
     <!-- jQuery -->
