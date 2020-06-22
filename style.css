@@ -1,4 +1,8 @@
 /* General */
+body {
+    background-color: #eee;
+}
+
 .header {
     color: grey;
 }
@@ -30,9 +34,32 @@ a:hover {
     box-shadow: 0px 3px 10px #b2b2b2;
 }
 
+/* .uk-divider-icon {
+    margin: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eee;
+    color: black !important;
+    
+} */
+
 /* Locations Section */
+
+#locationNav {
+    margin-top: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .uk-panel-scrollable {
-    height: 400px
+    height: 400px;
+}
+
+#locationGrid {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
 }
 
 #selectForm {
@@ -44,9 +71,13 @@ a:hover {
     width: 100%;
 }
 
-#stats {
-    height: 200px;
+#mapHolder {
+    padding-left: 0px;
 }
+
+/* #statsNav {
+
+} */
  
 /* General Info Page */
 
@@ -91,6 +122,12 @@ h4.genInfo {
     padding: 1em;
 }
 
+#additionalRes{
+    background: none;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 #resourceTitle {
      color: white;
 }
@@ -115,5 +152,28 @@ h4.genInfo {
 /* Footer */
 footer {
     background: #444;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.uk-section-xsmall{
+    background: none;
+}
+
+#footerContent {
+    margin-left: 10px;
+}
+
+#footerContent a {
+    color: white;
+}
+
+#footerContent p {
+    width: max-content;
+    align-content: center;
+}
+
+#repo {
     color: white;
 }
