@@ -1,0 +1,179 @@
+/* General */
+body {
+    background-color: #eee;
+}
+
+.header {
+    color: grey;
+}
+
+.whitebg {
+    background-color: white;
+}
+
+a, .grayTxt {
+    color: #555;
+}
+
+a:hover {
+    text-decoration: none;
+    color:#8a2be2;
+}
+
+.spacer {
+    margin-bottom: 50px;
+}
+
+/* Navbar */
+#pagetitle {
+    color: white;
+}
+
+#navbg {
+    background:linear-gradient(#2c1567, #3d3bbb);
+    box-shadow: 0px 3px 10px #b2b2b2;
+}
+
+/* .uk-divider-icon {
+    margin: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eee;
+    color: black !important;
+    
+} */
+
+/* Locations Section */
+
+#locationNav {
+    margin-top: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.uk-panel-scrollable {
+    height: 400px;
+}
+
+#locationGrid {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#selectForm {
+    height: 200px;
+}
+
+#map {
+    height: 400px; 
+    width: 100%;
+}
+
+#mapHolder {
+    padding-left: 0px;
+}
+
+/* #statsNav {
+
+} */
+ 
+/* General Info Page */
+
+.bluePurpleTxt {
+    color:#3d3bbb;
+}
+
+.genInfo {
+    margin-left: 15px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+h4.genInfo {
+    color: white;
+    padding: 5px;
+    max-width: 550px;
+}
+
+#emergencyTitle {
+    background: red;
+}
+
+#symptomsTitle {
+    background:#ffae42;
+}
+
+#protectTitle {
+    background:#196751;
+}
+
+#h2 {
+    margin-top: 10px;
+}
+
+/* Resources section */
+.externalResources, #Stats {
+    /* background:linear-gradient(#2c1567, #3d3bbb); */
+    background: #3d3bbb;
+    color: white;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+#additionalRes{
+    background: none;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#resourceTitle {
+     color: white;
+}
+
+.resourcesCrd {
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.cdcCard {
+    border-left: 5px solid #0339f8;
+}
+
+.whoCard {
+    border-left: 5px solid #8a2be2;
+}
+
+.uk-card-title {
+    font: white;
+}
+
+/* Footer */
+footer {
+    background: #444;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.uk-section-xsmall{
+    background: none;
+}
+
+#footerContent {
+    margin-left: 10px;
+}
+
+#footerContent a {
+    color: white;
+}
+
+#footerContent p {
+    width: max-content;
+    align-content: center;
+}
+
+#repo {
+    color: white;
+}
