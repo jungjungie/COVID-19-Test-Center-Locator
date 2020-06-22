@@ -219,4 +219,36 @@ $.ajax({
     console.log(statsAmerica[statsAmerica.length-1].Active)
     $(".active").text(statsAmerica[statsAmerica.length-1].Active);
 
+    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myDoughnutChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Deaths', 'Recovered', 'Active'],
+                            datasets: [{
+                                label: '%',
+                                data: [$(".deaths").text(), $(".recovered").text(), $(".active").text()],
+                                backgroundColor: [
+                                    'rgb(255, 99, 132)',
+                                    'rgb(54, 162, 235)',
+                                    'rgb(255, 205, 86)',
+                                ],
+                                borderColor: [
+                                    '#fff',
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            rotation: -0.5 * Math.PI,
+                            circumference: 2 * Math.PI,
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+
 });
