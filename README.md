@@ -7,7 +7,11 @@ The COVID19 Test Center Locator allows users to acquire addresses and schedules 
 Deployed Link: https://jungjungie.github.io/Project-1/
 
 Builders:
+
     Esther Min: https://github.com/jungjungie
+
     Wesley Tejeda: https://github.com/WesleyTejeda
+
     Andrew Hall: https://github.com/AndrewbHall96
+    
     Ben Acker: https://github.com/bendrakeacker
