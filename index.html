@@ -94,14 +94,22 @@
             </section>
         </section>
         <!-- Stats -->
-
-        <section id="statsNav">
-            <div class="uk-card uk-card-default uk-card-body whitebg uk-width-1-1"><h3>Live COVID-19 Statistics: United States</h3>
-                <div>Confirmed cases:</div><div class="confirmed"></div>
-                <div>Confirmed deaths:</div><div class="deaths"></div>
-                <div>Recoveries:</div><div class="recovered"></div>
-                <div>Active cases:</div><div class="active"></div>
-                <canvas id="myChart" width=".005" height=".005"></canvas>
+        <section >
+            <div id="statsNav" class="uk-child-width-expand@s whitebg" uk-grid>
+                <div id="statsParent" class="uk-card uk-card-default uk-card-body">
+                    <div id="statsInfo">
+                        <h3>Live COVID-19 Statistics: United States</h3>
+                        <u>Confirmed cases:</u><p class="confirmed uk-text-center minContent"></p>
+                        <u>Active cases:</u><p class="active uk-text-center minContent"></p>
+                        <u>Confirmed deaths:</u><p class="deaths uk-text-center minContent"></p>
+                        <u>Recoveries:</u><p class="recovered uk-text-center minContent"></p>
+                    </div>
+                </div>
+                <div id="chartParent">
+                    <div id="chart" class="uk-card uk-card-default uk-card-body">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

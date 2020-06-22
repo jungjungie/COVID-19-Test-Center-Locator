@@ -208,16 +208,16 @@ $.ajax({
     // console.log(statsAmerica[statsAmerica.length-1]);
 
     console.log(statsAmerica[statsAmerica.length-1].Confirmed)
-    $(".confirmed").text(statsAmerica[statsAmerica.length-1].Confirmed);
+    $(".confirmed").text(thousands_separators(statsAmerica[statsAmerica.length-1].Confirmed));
 
     console.log(statsAmerica[statsAmerica.length-1].Deaths)
-    $(".deaths").text(statsAmerica[statsAmerica.length-1].Deaths);
+    $(".deaths").text(thousands_separators(statsAmerica[statsAmerica.length-1].Deaths));
 
     console.log(statsAmerica[statsAmerica.length-1].Recovered)
-    $(".recovered").text(statsAmerica[statsAmerica.length-1].Recovered);
+    $(".recovered").text(thousands_separators(statsAmerica[statsAmerica.length-1].Recovered));
 
     console.log(statsAmerica[statsAmerica.length-1].Active)
-    $(".active").text(statsAmerica[statsAmerica.length-1].Active);
+    $(".active").text(thousands_separators(statsAmerica[statsAmerica.length-1].Active));
 
     var ctx = document.getElementById('myChart').getContext('2d');
                     var myDoughnutChart = new Chart(ctx, {
@@ -226,7 +226,10 @@ $.ajax({
                             labels: ['Deaths', 'Recovered', 'Active'],
                             datasets: [{
                                 label: '%',
-                                data: [$(".deaths").text(), $(".recovered").text(), $(".active").text()],
+                                data: [
+                                        statsAmerica[statsAmerica.length-1].Deaths,
+                                        statsAmerica[statsAmerica.length-1].Recovered,
+                                        statsAmerica[statsAmerica.length-1].Active],
                                 backgroundColor: [
                                     'rgb(255, 99, 132)',
                                     'rgb(54, 162, 235)',
@@ -241,14 +244,14 @@ $.ajax({
                         options: {
                             rotation: -0.5 * Math.PI,
                             circumference: 2 * Math.PI,
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                }]
-                            }
                         }
                     });
 
 });
+//W3 function to add commas
+function thousands_separators(num)
+  {
+    var num_parts = num.toString().split(".");
+    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return num_parts.join(".");
+  }
