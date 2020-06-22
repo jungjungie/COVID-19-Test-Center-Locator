@@ -58,7 +58,7 @@
 
 <body>
     <div id="locationNav" class="uk-container whitebg spacer">
-        <section class="uk-grid-small uk-child-width-1-2@s uk-flex-center uk-text-center" uk-grid>
+        <section id="locationGrid" class="uk-grid-small uk-child-width-1-2@s uk-flex-center uk-text-center spacer" uk-grid>
             <section id="scroll" class="uk-panel uk-panel-scrollable">
                 <div id="selectForm " class="uk-form-select whitebg" data-uk-form-select>
                     <h3>Select A State</h3>
@@ -83,7 +83,7 @@
 
                 </div>
             </section>
-            <section>
+            <section id="mapHolder">
                 <!-- Map goes here -->
 
                 <div id="map" class="uk-animation-slide-top"></div>
@@ -91,7 +91,7 @@
             </section>
         </section>
         <!-- Stats -->
-        <section>
+        <section id="statsNav">
             <div class="uk-card uk-card-default uk-card-body whitebg uk-width-1-1"><h3>Live COVID-19 Statistics: United States</h3>
                 <div>Confirmed cases:</div><div class="confirmed"></div>
                 <div>Confirmed deaths:</div><div class="deaths"></div>
@@ -100,7 +100,6 @@
             </div>
         </section>
     </div>
-
     <!-- General Information -->
     <div id="infoNav" class="uk-container spacer cdcSource">
         <div class="uk-card uk-card-default uk-width-expand uk-card-body">
@@ -189,7 +188,7 @@
     </div>
 
     <!-- Additional Resources -->
-    <div class="uk-container whitebg spacer">
+    <div id="additionalRes" class="uk-container whitebg spacer">
         <div class="uk-card uk-card-default uk-card-body externalResources">
             <h1 id="resourceTitle" class="uk-card-title uk-text-center">
                 VISIT THE CDC OR WHO WEBSITES FOR MORE INFORMATION
@@ -223,7 +222,6 @@
 
                 </div>
             </section>
-
             <!-- WHO Card -->
             <section class="spacer">
                 <div class="uk-card uk-card-default uk-card-body resourcesCrd whoCard">
@@ -249,7 +247,19 @@
     </div>
 
     <footer class="uk-card uk-text-center" uk-sticky="bottom: true">
-        <p class="uk-padding">&copy; Copyright 2020</p>
+        <div class="uk-section-xsmall uk-section-default">
+            <div id="footerContent" class="uk-container uk-text-center">
+                <div class="uk-grid-match uk-child-width-1-4 uk-flex-center" uk-grid>
+                    <p>Esther Min<a href="https://github.com/jungjungie" uk-icon="github"></a></p>
+                    <p>Andrew Hall<a href="https://github.com/AndrewbHall96" uk-icon="github"></a></p>
+                    <p>Ben Acker<a href="https://github.com/bendrakeacker" uk-icon="github"></a></p>
+                    <p>Wesley Tejeda<a href="https://github.com/WesleyTejeda" uk-icon="github"></a></p>
+                    <p id="repo">Github Repository<a href="https://github.com/jungjungie/Project-1" uk-icon="github"></a></p>
+                    <p>&copy; Copyright 2020</p>
+                </div>
+            </div>
+        </div>
+        
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
