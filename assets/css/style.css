@@ -75,10 +75,68 @@ a:hover {
     padding-left: 0px;
 }
 
-/* #statsNav {
+#statsNav {
+    margin-left: auto;
+}
 
-} */
- 
+#statsParent {
+    padding-left: 20px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+#statsInfo {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
+#statsInfo p {
+}
+
+#chartParent {
+    padding-left: 0px;
+}
+
+#chart {
+    height: 100%;
+}
+
+#myChart {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.minContent {
+    width: min-content;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.confirmed {
+    color: black;
+    font-weight: bold;
+}
+
+.deaths {
+    background-color: rgb(255, 97, 97);
+}
+
+.recovered {
+    background-color: rgb(52, 132, 238);
+}
+
+.active {
+    background-color: #ffae42;
+}
+
 /* General Info Page */
 
 .bluePurpleTxt {
