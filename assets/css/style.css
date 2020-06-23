@@ -34,15 +34,6 @@ a:hover {
     box-shadow: 0px 3px 10px #b2b2b2;
 }
 
-/* .uk-divider-icon {
-    margin: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #eee;
-    color: black !important;
-    
-} */
-
 /* Locations Section */
 
 #locationNav {
@@ -219,28 +210,14 @@ h4.genInfo {
 /* Footer */
 footer {
     background: #444;
-    color: white;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.uk-section-xsmall{
-    background: none;
+.white-text {
+    color: #d8d8d8;
 }
 
-#footerContent {
-    margin-left: 10px;
-}
-
-#footerContent a {
-    color: white;
-}
-
-#footerContent p {
-    width: max-content;
-    align-content: center;
-}
-
-#repo {
+.white-text:hover {
     color: white;
 }
