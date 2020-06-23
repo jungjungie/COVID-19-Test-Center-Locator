@@ -36,6 +36,16 @@ a:hover {
 
 /* Locations Section */
 
+#stateSelection {
+    height: 30px;
+    font-size: 18px;
+}
+
+option {
+    height: 20px;
+    width: 100%;
+}
+
 #locationNav {
     margin-top: 30px;
     padding-left: 0px;
@@ -55,6 +65,7 @@ a:hover {
 
 #selectForm {
     height: 200px;
+    background-color: #eee;
 }
 
 #map {
