@@ -76,7 +76,7 @@
                     var city = statesData[i].physical_address[0].city;
                     var postalCode = statesData[i].physical_address[0].postal_code;
                     var state = statesData[i].physical_address[0].state_province;
-                    var address = street + ", " + city + ", " + state + ", " + postalCode;
+                    var address = street + ", " + city + ", " + state + " " + postalCode;
                 }
                 if(statesData[i].phones.length !== 0)
                     var phone = statesData[i].phones[0].number;
@@ -92,7 +92,7 @@
                 //Fill created p tag and append to  div item
                 pTag.html(locName);
                 pTag2.html("Address: " + address);
-                pTag4.html(phone);
+                pTag4.html("Phone: " + phone);
     
                 // //Since the days come in integers we must switch them to days
                 // console.log(openHour.length);
