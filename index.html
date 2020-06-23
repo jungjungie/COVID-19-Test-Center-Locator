@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>COVID Test Center Locator</title>
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/jpg" href="assets/images/favicon.ico"/>
     <!-- Font Awesome Icons -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -46,10 +47,8 @@
 
 <body>
     <div id="locationNav" class="uk-container spacer">
-        <section id="locationGrid" class="uk-grid-small uk-child-width-1-2@s uk-flex-center uk-text-center spacer" uk-grid>
-            <section id="scroll" class="uk-panel uk-panel-scrollable whitebg">
-                <div id="selectForm " class="uk-form-select whitebg" data-uk-form-select>
-                    <h3>Select A State</h3>
+            <div id="selectForm " class="uk-form-select uk-text-center" data-uk-form-select>
+                <h3>Select A State
                     <!--onchange to call the function on every change. ID "stateSelection" to get value from script.js-->
                     <select id="stateSelection" onchange="getLocation()">
                         <option value="State">State</option>
@@ -66,7 +65,10 @@
                         <option value="utah">Utah</option>
                         <option value="washington">Washington</option>
                     </select>
-                </div>
+                </h3>
+            </div>
+        <section id="locationGrid" class="uk-grid-small uk-child-width-1-2@s uk-flex-center uk-text-center spacer" uk-grid>
+            <section id="scroll" class="uk-panel uk-panel-scrollable whitebg">
                 <div id="appendLocations">
 
                 </div>
