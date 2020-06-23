@@ -34,15 +34,6 @@ a:hover {
     box-shadow: 0px 3px 10px #b2b2b2;
 }
 
-/* .uk-divider-icon {
-    margin: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #eee;
-    color: black !important;
-    
-} */
-
 /* Locations Section */
 
 #locationNav {
@@ -75,6 +66,8 @@ a:hover {
     padding-left: 0px;
 }
 
+
+/* Stats Section */
 #statsNav {
     margin-left: auto;
 }
@@ -91,6 +84,12 @@ a:hover {
     margin-right: 0px;
 }
 
+#statsTitle {
+    color: white;
+    background: #3d3bbb;
+    border-radius: 5px;
+}
+
 #statsInfo p {
 }
 
@@ -104,25 +103,26 @@ a:hover {
 
 #myChart {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 .minContent {
-    width: min-content;
+    width: 100px;
     margin-left: auto;
     margin-right: auto;
     color: white;
     margin-top: 0px;
     margin-bottom: 0px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
+    /* padding-top: 2px; */
+    /* padding-bottom: 2px; */
+    padding: 2px 5px;
+    /* padding-left: 4px; */
+    /* padding-right: 4px; */
 }
 
 .confirmed {
     color: black;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .deaths {
@@ -210,28 +210,14 @@ h4.genInfo {
 /* Footer */
 footer {
     background: #444;
-    color: white;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.uk-section-xsmall{
-    background: none;
+.white-text {
+    color: #d8d8d8;
 }
 
-#footerContent {
-    margin-left: 10px;
-}
-
-#footerContent a {
-    color: white;
-}
-
-#footerContent p {
-    width: max-content;
-    align-content: center;
-}
-
-#repo {
+.white-text:hover {
     color: white;
 }

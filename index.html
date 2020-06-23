@@ -35,7 +35,7 @@
                     <div uk-dropdown="mode:click; offset:0" >
                         <ul class="uk-nav uk-dropdown-nav ">
                             <li><a href="#locationNav">Find A Location</a></li>
-                            <li><a href="#infoNav">Informaton</a></li>
+                            <li><a href="#infoNav">Information</a></li>
                         </ul>
                     </div>
                 </div>
@@ -79,19 +79,39 @@
             </section>
         </section>
         <!-- Stats -->
-        <section >
+        <section class="uk-card uk-card-default uk-width-expand uk-card-body" >
+            <h3 id="statsTitle" class="uk-text-center">Live COVID-19 Statistics: United States</h3>
             <div id="statsNav" class="uk-child-width-expand@s whitebg" uk-grid>
-                <div id="statsParent" class="uk-card uk-card-default uk-card-body">
+                <div id="statsParent" class="uk-card uk-width-1-2@s">
                     <div id="statsInfo">
-                        <h3>Live COVID-19 Statistics: United States</h3>
-                        <u>Confirmed cases:</u><p class="confirmed uk-text-center minContent"></p>
-                        <u>Active cases:</u><p class="active uk-text-center minContent"></p>
-                        <u>Confirmed deaths:</u><p class="deaths uk-text-center minContent"></p>
-                        <u>Recoveries:</u><p class="recovered uk-text-center minContent"></p>
+                        <!-- <div> -->
+                            <div uk-grid>
+                                <p class="uk-width-1-2 uk-width-1-3@m"><strong>Confirmed cases:</strong></p>
+                                <p class="confirmed uk-text-center uk-align-left uk-width-1-2 uk-width-1-3@m minContent"></p>
+                            </div>
+                        <!-- </div> -->
+                        <!-- <div> -->
+                            <div uk-grid>
+                                <p class="uk-width-1-2 uk-width-1-3@m"><strong>Active cases:</strong></p>
+                                <p class="active uk-text-center uk-align-left uk-width-1-2 uk-width-1-3@m minContent"></p>
+                            </div>
+                        <!-- </div> -->
+                        <!-- <div> -->
+                            <div uk-grid>
+                                <p class="uk-width-1-2 uk-width-1-3@m"><strong>Confirmed deaths:</strong></p>
+                                <p class="deaths uk-text-center uk-align-left uk-width-1-2 uk-width-1-3@m minContent"></p>
+                            </div>
+                        <!-- </div> -->
+                        <!-- <div> -->
+                            <div uk-grid>
+                                <p class="uk-width-1-2 uk-width-1-3@m"><strong>Recoveries:</strong></p>
+                                <p class="recovered uk-text-center uk-align-left uk-width-1-2 uk-width-1-3@m minContent"></p>
+                            </div>
+                        <!-- </div>     -->
                     </div>
                 </div>
-                <div id="chartParent">
-                    <div id="chart" class="uk-card uk-card-default uk-card-body">
+                <div id="chartParent" class="uk-width-1-2@s">
+                    <div id="chart" class="uk-card ">
                         <canvas id="myChart"></canvas>
                     </div>
                 </div>
@@ -192,7 +212,7 @@
     <div id="additionalRes" class="uk-container whitebg spacer">
         <div class="uk-card uk-card-default uk-card-body externalResources">
             <h1 id="resourceTitle" class="uk-card-title uk-text-center">
-                VISIT THE CDC OR WHO WEBSITES FOR MORE INFORMATION
+                VISIT THE WEBSITES BELOW FOR MORE INFORMATION
             </h1>
         </div>
     </div>
@@ -247,20 +267,32 @@
         </div>
     </div>
 
-    <footer class="uk-card uk-text-center" uk-sticky="bottom: true">
-        <div class="uk-section-xsmall uk-section-default">
-            <div id="footerContent" class="uk-container uk-text-center">
-                <div class="uk-grid-match uk-child-width-1-4 uk-flex-center" uk-grid>
-                    <p>Esther Min<a href="https://github.com/jungjungie" uk-icon="github"></a></p>
-                    <p>Andrew Hall<a href="https://github.com/AndrewbHall96" uk-icon="github"></a></p>
-                    <p>Ben Acker<a href="https://github.com/bendrakeacker" uk-icon="github"></a></p>
-                    <p>Wesley Tejeda<a href="https://github.com/WesleyTejeda" uk-icon="github"></a></p>
-                    <p id="repo">Github Repository<a href="https://github.com/jungjungie/Project-1" uk-icon="github"></a></p>
-                    <p>&copy; Copyright 2020</p>
+    <footer class="uk-text-center uk-text-left@s" uk-sticky="bottom: true">    
+        <div class="uk-container">
+            <div uk-grid class="uk-child-width-1-4@s uk-child-width-1-5@m uk-grid-match" >
+                <div class=""></div>
+                <div class="uk-align-center">
+                    <a href="https://github.com/bendrakeacker">
+                        <p class="uk-padding-remove uk-margin-remove white-text"><i class="fa fa-github" aria-hidden="true"></i>
+                            Ben Acker</p></a>
+                    <a href="https://github.com/AndrewbHall96">
+                        <p class="uk-padding-remove uk-margin-remove white-text"><i class="fa fa-github" aria-hidden="true"></i>
+                                    Andrew Hall</p></a>
+                    <a href="https://github.com/jungjungie">
+                        <p class="uk-padding-remove uk-margin-remove white-text"><i class="fa fa-github" aria-hidden="true"></i>
+                            Esther Min</p></a>
+                    <a href="https://github.com/WesleyTejeda">
+                        <p class="uk-padding-remove uk-margin-remove white-text"><i class="fa fa-github" aria-hidden="true"></i>
+                            Wesley Tejeda</p></a>
                 </div>
+                <div class="uk-hidden uk-visible@m"></div>
+                <div class="uk-align-center">
+                    <a href="https://github.com/jungjungie/Project-1"><p class="uk-padding-remove uk-margin-remove white-text">Github Repository</p></a>
+                    <p class="uk-padding-remove uk-margin-remove white-text">&copy; Copyright 2020</p>
+                </div>
+                <div></div>
             </div>
         </div>
-        
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
